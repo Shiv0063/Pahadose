@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+
+	<title>Pahado Se</title>
+
+	<!-- Stylesheet  -->
+	<link href="{% static 'assets/css/style-1.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		<div class="loader-wrap">
+			<div class="preloader">
+				<div class="preloader-close"><span class="fa fa-times fw-normal"></span></div>
+				<div id="handle-preloader" class="handle-preloader">
+					<div class="animation-preloader">
+						<div class="spinner"></div>
+						<div class="txt-loading">
+							<span data-text-preloader="P" class="letters-loading">
+								P
+							</span>
+							<span data-text-preloader="a" class="letters-loading">
+								a
+							</span>
+							<span data-text-preloader="h" class="letters-loading">
+								h
+							</span>
+							<span data-text-preloader="a" class="letters-loading">
+								a
+							</span>
+							<span data-text-preloader="d" class="letters-loading">
+								d
+							</span>
+							<span data-text-preloader="o" class="letters-loading">
+								o
+							</span>
+							<span data-text-preloader="S" class="letters-loading">
+								S
+							</span>
+							<span data-text-preloader="e" class="letters-loading">
+								e
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Preloader -->
+
+		<!-- Main Header -->
+		<header class="header header_style_one">
+			<div class="middle_bar">
+				<div class="auto-container">
+					<div
+						class="middle_bar_inner d-flex align-items-center justify-content-center justify-content-between gap-4 flex-wrap">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="/" class="logo_default"><img src="{% static 'assets/images/logoc.png' %}" width="110px"
+									alt="img"></a>
+							<a href="/" class="logo_sticky"><img src="{% static 'assets/images/logoc.png' %}" style="margin-bottom: -34px;" class="img-fluid" width="110px"
+									alt="img"></a>
+						</div>
+						<div class="mainnav d-none d-lg-block">
+							<ul class="main_menu">
+								<li class="menu-item"><a href="/">Home</a></li>
+								<li class="menu-item"><a href="/Experiences">Experiences</a></li>
+								<li class="menu-item"><a href="/Stays">Stays</a></li>
+								<li class="menu-item"><a href="/About">About Us</a></li>
+								<li class="menu-item"><a href="/Memories">Memories</a></li>
+								<li class="menu-item"><a href="/Blog">Blog</a></li>
+								<li class="menu-item"><a href="/Contact">Let’s Connect</a></li>
+							</ul>
+						</div>
+
+						<div class="other_elements_wrapper d-flex align-items-center gap-4">
+							<!-- Button Box -->
+							<div class="button-box d-none d-sm-block">
+								<a class="btn-style-one theme-btn" href="/Login">
+									<div class="btn-wrap">
+										<span class="text-one">Sign In</span>
+										<span class="text-two">Sign In</span>
+									</div>
+								</a>
+								<a class="btn-style-two theme-btn" href="/Login">
+									<div class="btn-wrap">
+										<span class="text-one">Sign In</span>
+										<span class="text-two">Sign In</span>
+									</div>
+								</a>
+							</div>
+
+							<!-- Mobile Menu Toggle Button -->
+							<div class="mr_menu_toggle d-lg-none">
+								<span class="toggle_line"></span>
+								<span class="toggle_line"></span>
+								<span class="toggle_line"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Sticky/Fixed Nav -->
+		<div class="fixed_menu w-100">
+			<header class="header header_style_one"></header>
+		</div>
+
+		<!-- Mobile Responsive Menu -->
+		<div class="mr_menu d-lg-none">
+
+			<button type="button" class="mr_menu_close"><i class="fa fa-times"></i></button>
+			<div class="logo"></div> <!-- Keep this div empty. Logo will come here by JavaScript -->
+			<div class="mr_navmenu"></div> <!-- Keep this div empty. Menu will come here by JavaScript -->
+		</div>
+		<!-- End Main Header -->
+
+        {% block content %}
+
+        {% endblock content %}
+		<!-- Footer -->
+		<footer class="main-footer">
+			<div class="auto-container">
+				<!-- Upper Box -->
+				<div class="upper-box">
+					<div class="d-flex  row flex-wrap">
+						<div class="col-md-6 col-6"><h5><b style="color: rgb(222,197,160);">PHONE : </b></h5><p style="color: white;">+91 78599 28880</p></div>
+						<div class="col-md-6 col-6"><h5><b style="color: rgb(222,197,160);">EMAIL : </b></h5><p style="color: white;">contact.pahadose@gmail.com</p></div>
+						<!-- <div class="col-md-4"><h5><b style="color: rgb(222,197,160);">ADDRESS : </b></h5><p style="color: white;">Lorem ipsum dolor sit amet.</p></div> -->
+	
+					</div>
+				</div>
+				<div class="upper-box mt-4">
+					<div class="d-flex align-items-center justify-content-between flex-wrap">
+						<div class="footer-logo"><a href="/"><img src="{% static 'assets/images/logoc.png' %}" width="110px" alt="" title=""></a>
+						</div>
+						<ul class="footer-nav">
+							<li><a href="/Experiences">Experiences</a></li>
+							<li><a href="/Stays">Stays</a></li>
+							<li><a href="/About">About Us</a></li>
+							<li><a href="/Memories">Memories</a></li>
+							<li><a href="/Blog">Blog</a></li>
+							<li><a href="/Contact">Let’s Connect</a></li>
+						</ul>
+						<!-- Social Box -->
+						<div class="footer-social_box">
+							<a href="https://facebook.com/" class="fab fa-facebook fa-fw"></a>
+							<a href="https://twitter.com/"><svg  style="margin-top: -5px !important;" xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+								<path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+							  </svg></a>
+							<a href="https://www.instagram.com/experiencesbypahadose/" class="fab fa-instagram fa-fw"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer-bottom">
+					<div class="d-flex align-items-center justify-content-between flex-wrap">
+						<div class="copyright">Copyright &copy; 2024 Pahado-Se. All rights reserved.</div>
+						<ul class="footer-bottom_nav">
+							<li><a href="#">Privacy policy</a></li>
+							<li><a href="#">Terms & Condition</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+
+	</div>
+	<!-- End PageWrapper -->
+
+	<!-- Scroll To Top -->
+	<div class="scroll-to-top"><span class="fas fa-arrow-up fa-fw"></span></div>
+
+	<script src="{% static 'assets/js/jquery.js' %}"></script>
+	<script src="{% static 'assets/js/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/appear.js' %}"></script>
+	<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+	<script src="{% static 'assets/js/tilt.jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/owl.js' %}"></script>
+	<script src="{% static 'assets/js/wow.js' %}"></script>
+
+	<script src="{% static 'assets/js/odometer.js' %}"></script>
+	<script src="{% static 'assets/js/isotope.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.marquee.min.js' %}"></script>
+	<script src="{% static 'assets/js/parallax-scroll.js' %}"></script>
+	<script src="{% static 'assets/js/nav-tool.js' %}"></script>
+	<script src="{% static 'assets/js/mixitup.js' %}"></script>
+	<script src="{% static 'assets/js/swiper.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+	<script src="{% static 'assets/js/select2.min.js' %}"></script>
+	<script src="{% static 'assets/js/flatpickr.min.js' %}"></script>
+	<script src="{% static 'assets/js/price-range.js' %}"></script>
+
+	<script src="{% static 'assets/js/script.js' %}"></script>
+
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+</body>
+
+</html>

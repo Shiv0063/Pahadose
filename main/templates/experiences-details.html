@@ -1,0 +1,251 @@
+﻿{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Banner -->
+<section class="page-banner" style="background-image: url(/static/assets/images/New/MG_6873.jpg)">
+	<div class="auto-container">
+		<ul class="page-breadbrumbs">
+			<li><a href="#">Home</a></li>
+			<li>Experiences</li>
+			<li>{{ec.Category}}</li>
+		</ul>
+		<h2 class="page-banner_title">{{dt.Name}}</h2>
+	</div>
+</section>
+<!-- End Page Banner -->
+
+<!-- Gallery Six  -->
+<section class="gallery-six">
+	<div class="outer-container">
+		<div class="gallery-carousel-two owl-carousel owl-theme">
+			{% for i in EIM %}
+			<!-- Image -->
+			<div class="image">
+				<a class="lightbox-image" href="/{{i.Image}}"><img src="/{{i.Image}}" alt=""></a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!-- End Gallery Six  -->
+
+<!-- Tour Detail -->
+<section class="tour-detail">
+	<div class="auto-container">
+		<div class="row clearfix">
+			<!-- Column -->
+			<div class="column col-lg-6 col-md-12 col-sm-12">
+				<div class="text">{{dt.Description}}
+				</div>
+			</div>
+			<!-- Column -->
+			<div class="column col-lg-6 col-md-12 col-sm-12">
+				<div class="tour-package">
+					<h2 class="tour-package_title">Experiences Details</h2>
+					<div class="row clearfix">
+						<div class="col-sm-12">
+							<ul class="tour-package_list">
+								<li><span class="icon fas fa-map-marker-alt fa-fw"></span>Address :
+									<b>{{dt.Address}}</b></li>
+								<li><span class="icon fas fa-dollar-sign fa-fw"></span>Price : <b>{{dt.Price}}</b></li>
+								<li><span class="icon fas fa-clock fa-fw"></span>Days : <b>{{dt.Days}}</b></li>
+								<li><span class="icon fas fa-calendar fa-fw"></span>Date : <b>{{dt.Date}}</b> </li>
+							</ul>
+						</div>
+						<div class="col-md-12 text-end">
+							<a {% if fm != False %} href="/ExperiencesForm/{{dt.Name}}" {% endif %} class="btn-style-two theme-btn m-auto">
+								<span class="btn-wrap">
+									<span class="text-one">Apply</span>
+									<span class="text-two">Apply</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Middle Column -->
+		<div class="middle-column">
+			<div class="row clearfix">
+				<!-- Column -->
+				<div class="column col-lg-6 col-md-12 col-sm-12">
+					<h3>INCLUDED</h3>
+					<ul class="tour-detail_list">
+						{% for i in EDI %}
+						{% if i.Types == 'Included' %}
+						<li>{{i.Lines}}</li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<!-- Column -->
+				<div class="column col-lg-6 col-md-12 col-sm-12">
+					<h3>NOT INCLUDED</h3>
+					<ul class="tour-detail_list">
+						{% for i in EDI %}
+						{% if i.Types == 'NotIncluded' %}
+						<li>{{i.Lines}}</li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Middle Column -->
+
+
+		<!-- Reviews One -->
+		<div class="reviews-one">
+			<div class="title-box">
+				<h4 class="reviews-one_title">reviews</h4>
+			</div>
+			<div class="testimonial-carousel-two owl-carousel owl-theme">
+
+				<!-- Testimonial Block One -->
+				<div class="testimonial-block_one style-two">
+					<div class="testimonial-block_one-inner">
+						<div class="testimonial-block_one-text">My family and I had an amazing time on this tour
+							package! The resort was beautiful and had everything we needed for a perfect beach
+							vacation. The snorkeling excursion was a highlight of our trip and we even saw a few
+							sea turtles. The Chichen Itza and cenote tour was also incredible, and our guide was
+							very knowledgeable.</div>
+						<div class="testimonial-block_one-author">
+							<div class="testimonial-block_one-author_image">
+								<img src="/static/assets/images/resource/author-3.png" alt="">
+							</div>
+							Isla Cameron
+							<span>Client from United Kingdom</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial Block One -->
+				<div class="testimonial-block_one style-two">
+					<div class="testimonial-block_one-inner">
+						<div class="testimonial-block_one-text">I booked this tour package for a solo trip and
+							it exceeded my expectations. The resort was very comfortable and the staff was
+							friendly and helpful. I loved the snorkeling excursion and the Chichen Itza tour was
+							simply amazing. The cenote was refreshing after a hot day of exploring. I also
+							appreciated the option to visit Playa del Carmen and Isla Mujeres.</div>
+						<div class="testimonial-block_one-author">
+							<div class="testimonial-block_one-author_image">
+								<img src="/static/assets/images/resource/author-4.png" alt="">
+							</div>
+							Rupert Green
+							<span>Client from New Zealand</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial Block One -->
+				<div class="testimonial-block_one style-two">
+					<div class="testimonial-block_one-inner">
+						<div class="testimonial-block_one-text">My family and I had an amazing time on this tour
+							package! The resort was beautiful and had everything we needed for a perfect beach
+							vacation. The snorkeling excursion was a highlight of our trip and we even saw a few
+							sea turtles. The Chichen Itza and cenote tour was also incredible, and our guide was
+							very knowledgeable.</div>
+						<div class="testimonial-block_one-author">
+							<div class="testimonial-block_one-author_image">
+								<img src="images/resource/author-3.png" alt="">
+							</div>
+							Isla Cameron
+							<span>Client from United Kingdom</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial Block One -->
+				<div class="testimonial-block_one style-two">
+					<div class="testimonial-block_one-inner">
+						<div class="testimonial-block_one-text">I booked this tour package for a solo trip and
+							it exceeded my expectations. The resort was very comfortable and the staff was
+							friendly and helpful. I loved the snorkeling excursion and the Chichen Itza tour was
+							simply amazing. The cenote was refreshing after a hot day of exploring. I also
+							appreciated the option to visit Playa del Carmen and Isla Mujeres.</div>
+						<div class="testimonial-block_one-author">
+							<div class="testimonial-block_one-author_image">
+								<img src="images/resource/author-4.png" alt="">
+							</div>
+							Rupert Green
+							<span>Client from New Zealand</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- End Reviews One -->
+		<!-- Itinerary One -->
+		<div class="itinerary-one">
+			<div class="title-box">
+				<div class="d-flex align-items-center justify-content-between flex-wrap">
+					<h4>Experiences</h4>
+					<a class="package-one_more" href="experiences.html">See More Activities</a>
+				</div>
+			</div>
+
+			<div class="three-item-carousel owl-carousel owl-theme">
+				<!-- Itinerary Block One -->
+				<div class="itinerary-block_one">
+					<div class="itinerary-block_one-inner">
+						<div class="itinerary-block_one-image">
+							<img src="images/New/place/Place (14).jpeg" alt="">
+							<div class="itinerary-block_one-content">
+								<h5 class="itinerary-block_one-heading"><a href="experiences-details.html">Lorem
+										ipsum dolor sit, amet consectetur adipisicing elit.</a></h5>
+								<div class="itinerary-block_one-date">Starting Date :</div>
+								<div class="itinerary-block_one-text">Enjoy the cultural old ruins trip
+									experienced tour guides.</div>
+								<a class="itinerary-block_one-arrow flaticon-next-2"
+									href="experiences-details.html"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Itinerary Block One -->
+				<div class="itinerary-block_one">
+					<div class="itinerary-block_one-inner">
+						<div class="itinerary-block_one-image">
+							<img src="images/New/place/Place (13).jpeg" alt="">
+							<div class="itinerary-block_one-content">
+								<h5 class="itinerary-block_one-heading"><a href="experiences-details.html">Lorem
+										ipsum dolor sit amet.</a></h5>
+								<div class="itinerary-block_one-date">Starting Date :</div>
+								<div class="itinerary-block_one-text">Enjoy the cultural old ruins trip
+									experienced tour guides.</div>
+								<a class="itinerary-block_one-arrow flaticon-next-2"
+									href="experiences-details.html"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Itinerary Block One -->
+				<div class="itinerary-block_one">
+					<div class="itinerary-block_one-inner">
+						<div class="itinerary-block_one-image">
+							<img src="images/New/place/Place (7).jpeg" alt="">
+							<div class="itinerary-block_one-content">
+								<h5 class="itinerary-block_one-heading"><a href="experiences-details.html">Lorem
+										ipsum dolor, sit amet </a></h5>
+								<div class="itinerary-block_one-date">Starting Date :</div>
+								<div class="itinerary-block_one-text">Enjoy the cultural old ruins trip
+									experienced tour guides.</div>
+								<a class="itinerary-block_one-arrow flaticon-next-2"
+									href="experiences-details.html"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- End Itinerary Column -->
+
+	</div>
+</section>
+<!-- End Tour Detail -->
+{% endblock content %}

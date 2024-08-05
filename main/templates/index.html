@@ -1,0 +1,881 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+	<title>Pahado Se</title>
+	<!-- Stylesheet  -->
+	<link href="{% static 'assets/css/style-1.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="page-wrapper">
+
+		<!-- Preloader -->
+		<div class="loader-wrap">
+			<div class="preloader">
+				<div class="preloader-close"><span class="fa fa-times fw-normal"></span></div>
+				<div id="handle-preloader" class="handle-preloader">
+					<div class="animation-preloader">
+						<div class="spinner"></div>
+						<div class="txt-loading">
+							<span data-text-preloader="P" class="letters-loading">
+								P
+							</span>
+							<span data-text-preloader="a" class="letters-loading">
+								a
+							</span>
+							<span data-text-preloader="h" class="letters-loading">
+								h
+							</span>
+							<span data-text-preloader="a" class="letters-loading">
+								a
+							</span>
+							<span data-text-preloader="d" class="letters-loading">
+								d
+							</span>
+							<span data-text-preloader="o" class="letters-loading">
+								o
+							</span>
+							<span data-text-preloader="S" class="letters-loading">
+								S
+							</span>
+							<span data-text-preloader="e" class="letters-loading">
+								e
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Preloader -->
+
+		<!-- Main Header -->
+		<header class="header header_style_one">
+			<div class="middle_bar">
+				<div class="auto-container">
+					<div
+						class="middle_bar_inner d-flex align-items-center justify-content-center justify-content-between gap-4 flex-wrap">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="/" class="logo_default"><img src="{% static 'assets/images/logoc.png' %}" width="110px"
+									alt="img"></a>
+							<a href="/" class="logo_sticky"><img src="{% static 'assets/images/logoc.png' %}" style="margin-bottom: -34px;" class="img-fluid" width="110px"
+									alt="img"></a>
+						</div>
+						<div class="mainnav d-none d-lg-block">
+							<ul class="main_menu">
+								<li class="menu-item"><a href="/">Home</a></li>
+								<li class="menu-item"><a href="/Experiences">Experiences</a></li>
+								<li class="menu-item"><a href="/Stays">Stays</a></li>
+								<li class="menu-item"><a href="/About">About Us</a></li>
+								<li class="menu-item"><a href="/Memories">Memories</a></li>
+								<li class="menu-item"><a href="/Blog">Blog</a></li>
+								<li class="menu-item"><a href="/Contact">Let’s Connect</a></li>
+							</ul>
+						</div>
+
+						<div class="other_elements_wrapper d-flex align-items-center gap-4">
+							<!-- Button Box -->
+							<div class="button-box d-none d-sm-block">
+								<a class="btn-style-one theme-btn" href="/Login">
+									<div class="btn-wrap">
+										<span class="text-one">Sign In</span>
+										<span class="text-two">Sign In</span>
+									</div>
+								</a>
+								<a class="btn-style-two theme-btn" href="/Login">
+									<div class="btn-wrap">
+										<span class="text-one">Sign In</span>
+										<span class="text-two">Sign In</span>
+									</div>
+								</a>
+							</div>
+
+							<!-- Mobile Menu Toggle Button -->
+							<div class="mr_menu_toggle d-lg-none">
+								<span class="toggle_line"></span>
+								<span class="toggle_line"></span>
+								<span class="toggle_line"></span>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Sticky/Fixed Nav -->
+		<div class="fixed_menu w-100">
+			<header class="header header_style_one"></header>
+		</div>
+
+		<!-- Mobile Responsive Menu -->
+		<div class="mr_menu d-lg-none">
+
+			<button type="button" class="mr_menu_close"><i class="fa fa-times"></i></button>
+			<div class="logo"></div> <!-- Keep this div empty. Logo will come here by JavaScript -->
+			<div class="mr_navmenu"></div> <!-- Keep this div empty. Menu will come here by JavaScript -->
+		</div>
+		<!-- End Main Header -->
+
+
+		<!-- Banner One / Style Three -->
+		<section class="banner-one style-three">
+			<div class="banner-one_image-layer" style="background-image: url(static/assets/images/New/MG_662.jpg)"></div>
+			<div class="auto-container">
+				<!-- Content Column -->
+				<div class="banner-one_content">
+					<div class="banner-one_content-inner">
+						<div class="banner-one_title">
+							Portal to Curated Himalayan
+						</div>
+						<h1 class="banner-one_heading">EXPERIENCES</h1>
+						<!-- <div class="banner-one_text">Experience the thrill of exploring the world's most fascinating destinations <br> with our expertly curated travel packages.</div> -->
+						<!-- Form Box -->
+						<div class="banner-one_form-box">
+							<!-- Travel Form -->
+							<div class="travel-form">
+								<form method="post" action="#">
+									<div class="row clearfix">
+										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
+											<div class="form-group_inner">
+												
+												<label>Destination</label>
+												<input type="text" name="" id="" placeholder="Select Destination">
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
+											<div class="form-group_inner">
+												<label>Date</label>
+												<input class="flatpickr" type="text" name="calendar"
+													placeholder="Select Date">
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
+											<div class="form-group_inner">
+												<label>Price</label>
+												<input type="text" name="text" placeholder="Price" value="" required="">
+											</div>
+										</div>
+									</div>
+									<!-- Button Box -->
+									<div class="button-box">
+										<button class="btn-style-two theme-btn">
+											<span class="btn-wrap">
+												<span class="text-one">Search</span>
+												<span class="text-two">Search</span>
+											</span>
+										</button>
+									</div>
+								</form>
+							</div>
+							<!-- End Travel Form -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Banner One -->
+
+		<!-- About One -->
+		<section class="about-one">
+			<div class="auto-container">
+				<div class="row clearfix">
+					<!-- Image Column -->
+					<!-- Content Column -->
+					<div class="about-one_content-column col-md-12 col-sm-12">
+						<div class="about-one_content">
+							<div class="sec-title_three">
+								<div class="sec-title_three-title">Why with Us</div>
+								<h1 class="sec-title_three-heading">Pahado Se</h1>
+								<div class="sec-title_three-text">
+									Welcome to <b>Pahado Se</b>, where the Himalayan spirit comes alive. As a lifestyle
+									specialist company born in the heart of the Indian Himalayas, we’re on a mission to
+									spread the essence of this majestic region globally. Our core values— <b>progress,
+										prosperity, and perseverance</b> —drive everything we do.
+								</div>
+								<div class="sec-title_three-text">
+									We believe in preserving the Sustainable Himalayan way of life. Our goal is to keep
+									the <b>“Himalayan Spirit”</b> alive among nature enthusiasts, Himalaya lovers, and
+									all who seek authenticity. <a href="about.html" class="package-one_more">Read
+										More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End About One -->
+
+		<!-- Gallery One -->
+		<section class="gallery-one d-none d-md-block d-lg-block" style="background: url(static/assets/images/logoc.png); background-repeat: no-repeat;background-size: 130px;  background-position: center;">
+			<div class="auto-container">
+				<div class="itinerary-one">
+					<div class="title-box">
+						<div class="d-flex align-items-center justify-content-between flex-wrap">
+							<h4>Experiences</h4>
+							<a>
+								<h4>Stays</h4>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6 ">
+							{% for i in dt %}
+							<div class="row p-5 mb-2 mt-2">
+								<div class="col-6 align-content-center">
+									<h5><b>{{i.Name}}</b></h5>
+									<p class="mt-2">{{i.SmallDescription}} <br><a href="/Experiences/{{i.Category}}/{{i.Name}}" class="package-one_more">{% if i.View == 'KnowMore' %}Know More{% else %}Coming Soon{% endif %}</a> </p>
+								</div>
+								<div class="col-6">
+									<img src="/{{i.Image}}" width="227px" style="height: 170px; border-radius: 10px;" alt="">
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<!-- <div class="vl" style="border-left: 3px solid #000;height: 500px;   position:fixed; transform:translate(595px,30px); z-index: 1 !important;"></div> -->
+						<div class="col-6 ">
+							<div class="row p-5">
+								<div class="col-6">
+									<img src="{% static 'assets/images/New/rooms/2 (2).jpeg' %}" style="border-radius: 10px;" alt="">
+								</div>
+								<div class="col-6 align-content-center">
+									<h5><b>Uttarakhand</b></h5>
+									<p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+										magnam, commodi.</p>
+								</div>
+
+							</div>
+							<div class="row p-5 mt-4">
+								<div class="col-6">
+									<img src="{% static 'assets/images/New/rooms/1 (4).jpeg' %}" style="border-radius: 10px;" alt="">
+								</div>
+								<div class="col-6 align-content-center">
+									<h5><b>EHimachal</b></h5>
+									<p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+										magnam, commodi.</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- End Gallery One -->
+
+		<!-- Gallery One -->
+		<section class="gallery-one d-md-none d-lg-none">
+			<div class="auto-container">
+				<div class="itinerary-one">
+					<div class="title-box">
+						<div class="d-flex align-items-center justify-content-between flex-wrap">
+							<h4>Experiences</h4>
+							<a class="package-one_more" href="hotel-details.html">See More Activities</a>
+						</div>
+					</div>
+
+					<div class="three-item-carousel owl-carousel owl-theme">
+						<!-- Itinerary Block One -->
+						 {% for i in dt2 %}
+						<div class="itinerary-block_one">
+							<div class="itinerary-block_one-inner">
+								<div class="itinerary-block_one-image">
+									<img src="/{{i.Image}}" alt="" class="img-fluid" style="height: 302px;">
+									<div class="itinerary-block_one-content">
+										<h5 class="itinerary-block_one-heading"><a href="/Experiences/{{i.Category}}/{{i.Name}}">{{i.Name}}</a></h5>
+										<div class="itinerary-block_one-text">{{i.SmallDescription}}</div>
+										<a class="itinerary-block_one-arrow flaticon-next-2"
+											href="/Experiences/{{i.Category}}/{{i.Name}}"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Gallery One -->
+		<!-- Promo One -->
+		<section class="promo-one d-md-none d-lg-none mt-5">
+			<div class="auto-container">
+				<!-- Sec Title -->
+				<div class="sec-title centered">
+					<h2 class="sec-title_heading">Stays</h2>
+					<div class="sec-title-text">Our best Stays for you.</div>
+				</div>
+				<div class="promo-carousel owl-carousel owl-theme">
+					<!-- Promo Block One -->
+					<div class="promo-block_one">
+						<div class="promo-block_one-inner">
+							<div class="promo-block_one-image">
+								<img src="{% static 'assets/images/New/rooms/2 (2).jpeg' %}" alt="">
+								<div class="rating">
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</div>
+								<div class="promo-block_one-content">
+									<h1 class="promo-block_one-title"><a href="hotel-details.html">Uttarakhand</a>
+									</h1>
+									<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+										buffet during your stay for free in this Rome hotel.</div>
+									<div class="promo-block_one-button">
+										<a href="hotel-booking.html" class="theme-btn book-btn">Book Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo Block One -->
+					<div class="promo-block_one">
+						<div class="promo-block_one-inner">
+							<div class="promo-block_one-image">
+								<img src="{% static 'assets/images/New/rooms/1 (4).jpeg' %}" alt="">
+								<div class="rating">
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</div>
+								<div class="promo-block_one-content">
+									<h1 class="promo-block_one-title"><a href="hotel-details.html">Himachal</a></h1>
+									<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+										buffet during your stay for free in this Rome hotel.</div>
+									<div class="promo-block_one-button">
+										<a href="hotel-booking.html" class="theme-btn book-btn">Book Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo Block One -->
+					<div class="promo-block_one">
+						<div class="promo-block_one-inner">
+							<div class="promo-block_one-image">
+								<img src="{% static 'assets/images/New/rooms/2 (2).jpeg' %}" alt="">
+								<div class="rating">
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</div>
+								<div class="promo-block_one-content">
+									<h1 class="promo-block_one-title"><a href="hotel-details.html">Uttarakhand</a>
+									</h1>
+									<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+										buffet during your stay for free in this Rome hotel.</div>
+									<div class="promo-block_one-button">
+										<a href="hotel-booking.html" class="theme-btn book-btn">Book Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Promo Block One -->
+					<div class="promo-block_one">
+						<div class="promo-block_one-inner">
+							<div class="promo-block_one-image">
+								<img src="{% static 'assets/images/New/rooms/1 (4).jpeg' %}" alt="">
+								<div class="rating">
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</div>
+								<div class="promo-block_one-content">
+									<h1 class="promo-block_one-title"><a href="hotel-details.html">Himachal</a></h1>
+									<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+										buffet during your stay for free in this Rome hotel.</div>
+									<div class="promo-block_one-button">
+										<a href="hotel-booking.html" class="theme-btn book-btn">Book Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Promo One -->
+
+		<!-- Gallery Two -->
+		<section class="">
+			<div class="auto-container mt-4">
+				<!-- Sec Title Two -->
+				<div class="sec-title_two">
+					<div class="bid-title">Memories</div>
+					<div class="title">OUR ADVENTURES</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Gallery Two -->
+
+		<!-- Gallery Six  -->
+		<section class="gallery-six gallery-two">
+			<div class="outer-container">
+				<div class="gallery-carousel-two owl-carousel owl-theme">
+
+					<!-- Image -->
+					<div class="image">
+						<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (1).jpeg' %}"><img
+								src="{% static 'assets/images/New/place/Place (1).jpeg' %}" alt=""></a>
+					</div>
+
+					<!-- Image -->
+					<div class="image">
+						<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (11).jpeg' %}"><img
+								src="{% static 'assets/images/New/place/Place (11).jpeg' %}" alt=""></a>
+					</div>
+
+					<!-- Image -->
+					<div class="image">
+						<a class="lightbox-image" href="{% static 'assets/images/New/3.jpeg' %}"><img src="{% static 'assets/images/New/3.jpeg' %}" alt=""></a>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- End Gallery Six  -->
+		<!-- Feature One -->
+		<section class="feature-one style-two">
+			<div class="auto-container">
+				<div class="row clearfix">
+					<!-- Feature Block One / Style Two -->
+					<div class="feature-block_one style-two col-lg-3 col-md-6 col-sm-12">
+						<div class="feature-block_one-inner wow fadeInLeft" data-wow-delay="0ms"
+							data-wow-duration="1500ms">
+							<div class="feature-block_one-icon flaticon-smile-1"></div>
+							<h5 class="feature-block_one-title">Customer Delight</h5>
+							<div class="feature-block_one-text">We deliver the best service and experience for our
+								customer.</div>
+						</div>
+					</div>
+
+					<!-- Feature Block One / Style Two -->
+					<div class="feature-block_one style-two col-lg-3 col-md-6 col-sm-12">
+						<div class="feature-block_one-inner wow fadeInLeft" data-wow-delay="150ms"
+							data-wow-duration="1500ms">
+							<div class="feature-block_one-icon flaticon-mountain"></div>
+							<h5 class="feature-block_one-title">Authentic Adventure</h5>
+							<div class="feature-block_one-text">We deliver the real adventure experience for our dear
+								customer.</div>
+						</div>
+					</div>
+
+					<!-- Feature Block One / Style Two -->
+					<div class="feature-block_one style-two col-lg-3 col-md-6 col-sm-12">
+						<div class="feature-block_one-inner wow fadeInLeft" data-wow-delay="300ms"
+							data-wow-duration="1500ms">
+							<div class="feature-block_one-icon flaticon-flags"></div>
+							<h5 class="feature-block_one-title">Expert Guides</h5>
+							<div class="feature-block_one-text">We deliver only expert tour guides for our dear
+								customer.</div>
+						</div>
+					</div>
+
+					<!-- Feature Block One / Style Two -->
+					<div class="feature-block_one style-two col-lg-3 col-md-6 col-sm-12">
+						<div class="feature-block_one-inner wow fadeInLeft" data-wow-delay="450ms"
+							data-wow-duration="1500ms">
+							<div class="feature-block_one-icon flaticon-clock"></div>
+							<h5 class="feature-block_one-title">Time Flexibility</h5>
+							<div class="feature-block_one-text">We welcome time flexibility of traveling for our dear
+								customer.</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- End Feature One -->
+		<!-- Tour Detail -->
+		<section class="">
+			<div class="auto-container">
+				<!-- Reviews One -->
+				<div class="reviews-one">
+					<div class="title-box">
+						<h4 class="reviews-one_title">TESTIMONIALS</h4>
+					</div>
+					<div class="testimonial-carousel-two owl-carousel owl-theme">
+
+						<!-- Testimonial Block One -->
+						<div class="testimonial-block_one style-two">
+							<div class="testimonial-block_one-inner">
+								<div class="testimonial-block_one-text">My family and I had an amazing time on this tour
+									package! The resort was beautiful and had everything we needed for a perfect beach
+									vacation. The snorkeling excursion was a highlight of our trip and we even saw a few
+									sea turtles. The Chichen Itza and cenote tour was also incredible, and our guide was
+									very knowledgeable.</div>
+								<div class="testimonial-block_one-author">
+									<div class="testimonial-block_one-author_image">
+										<img src="{% static 'assets/images/resource/author-3.png' %}" alt="">
+									</div>
+									Isla Cameron
+									<span>Client from United Kingdom</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Testimonial Block One -->
+						<div class="testimonial-block_one style-two">
+							<div class="testimonial-block_one-inner">
+								<div class="testimonial-block_one-text">I booked this tour package for a solo trip and
+									it exceeded my expectations. The resort was very comfortable and the staff was
+									friendly and helpful. I loved the snorkeling excursion and the Chichen Itza tour was
+									simply amazing. The cenote was refreshing after a hot day of exploring. I also
+									appreciated the option to visit Playa del Carmen and Isla Mujeres.</div>
+								<div class="testimonial-block_one-author">
+									<div class="testimonial-block_one-author_image">
+										<img src="{% static 'assets/images/resource/author-4.png' %}" alt="">
+									</div>
+									Rupert Green
+									<span>Client from New Zealand</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Testimonial Block One -->
+						<div class="testimonial-block_one style-two">
+							<div class="testimonial-block_one-inner">
+								<div class="testimonial-block_one-text">My family and I had an amazing time on this tour
+									package! The resort was beautiful and had everything we needed for a perfect beach
+									vacation. The snorkeling excursion was a highlight of our trip and we even saw a few
+									sea turtles. The Chichen Itza and cenote tour was also incredible, and our guide was
+									very knowledgeable.</div>
+								<div class="testimonial-block_one-author">
+									<div class="testimonial-block_one-author_image">
+										<img src="{% static 'assets/images/resource/author-3.png' %}" alt="">
+									</div>
+									Isla Cameron
+									<span>Client from United Kingdom</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Testimonial Block One -->
+						<div class="testimonial-block_one style-two">
+							<div class="testimonial-block_one-inner">
+								<div class="testimonial-block_one-text">I booked this tour package for a solo trip and
+									it exceeded my expectations. The resort was very comfortable and the staff was
+									friendly and helpful. I loved the snorkeling excursion and the Chichen Itza tour was
+									simply amazing. The cenote was refreshing after a hot day of exploring. I also
+									appreciated the option to visit Playa del Carmen and Isla Mujeres.</div>
+								<div class="testimonial-block_one-author">
+									<div class="testimonial-block_one-author_image">
+										<img src="{% static 'assets/images/resource/author-4.png' %}" alt="">
+									</div>
+									Rupert Green
+									<span>Client from New Zealand</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- End Reviews One -->
+			</div>
+		</section>
+		<!-- End Tour Detail -->
+
+		<!-- News Two -->
+		<section class="news-two">
+			<div class="auto-container">
+				<!-- Sec Title Two -->
+				<div class="sec-title_two">
+					<div class="bid-title">BLOG</div>
+					<div class="title">Pahado-se NEWS & UPDATES</div>
+				</div>
+				<div class="row clearfix">
+					<!-- Column -->
+					<div class="column col-lg-8 col-md-12 col-sm-12">
+						<!-- News Block Two -->
+						<div class="news-block_two">
+							<div class="news-block_two-inner">
+								<div class="news-block_two-image">
+									<a href="blog-details.html"><img src="{% static 'assets/images/New/place/Place (7).jpeg' %}" alt=""></a>
+									<div class="news-block_two-overlay">
+										<div class="news-block_two-title">travel</div>
+										<h1 class="news-block_two-heading"><a href="blog-details.html">10 Must-See <br>
+												Attractions <br> in Manali</a></h1>
+										<div class="news-block_two-author_outer">
+											<div class="news-block_two-author">
+												<div class="news-block_two-author_image">
+													<img src="{% static 'assets/images/resource/author-2.jpg' %}" alt="">
+												</div>
+												Angus Smith
+												<span>August 15, 2025</span>
+											</div>
+										</div>
+										<a class="news-block_two-arrow flaticon-next-2" href="hotel-details.html"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Column -->
+					<div class="column col-lg-4 col-md-12 col-sm-12">
+
+						<!-- News Block Two -->
+						<div class="news-block_two style-two">
+							<div class="news-block_two-inner">
+								<div class="news-block_two-image">
+									<a href="blog-details.html"><img src="{% static 'assets/images/New/place/Place (13).jpeg' %}" alt=""></a>
+									<div class="news-block_two-overlay">
+										<div class="news-block_two-title">travel</div>
+										<h4 class="news-block_two-heading"><a href="blog-details.html">Our Beginner's
+												Guide to Hiking in the Swiss Alps</a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- News Block Two -->
+						<div class="news-block_two style-two">
+							<div class="news-block_two-inner">
+								<div class="news-block_two-image">
+									<a href="blog-details.html"><img src="{% static 'assets/images/New/place/Place (9).jpeg' %}" alt=""></a>
+									<div class="news-block_two-overlay">
+										<div class="news-block_two-title">travel</div>
+										<h4 class="news-block_two-heading"><a href="blog-details.html">Solo Travel: The
+												Best Thing You Can Do For Yourself</a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End News Two -->
+
+		<!-- Faq Two -->
+		<section class="faq-two" style="background-image: url(static/assets/images/New/1.jpeg)">
+			<div class="auto-container">
+				<div class="faq-two_inner-container">
+					<div class="faq-two_pattern" style="background-image: url(static/assets/images/icons/pattern-2.png)"></div>
+					<div class="row clearfix">
+						<!-- Accordian Column -->
+						<div class="faq-two_accordian-column col-lg-8 col-md-12 col-sm-12">
+							<!-- Accordion Box -->
+							<ul class="accordion-box">
+
+								<!-- Block -->
+								<li class="accordion block active-block">
+									<div class="acc-btn active">
+										<div class="icon-outer"><span class="icon fa-solid fa-angle-down fa-fw"></span>
+										</div>What type of travel packages does Pahado-se offer?
+									</div>
+									<div class="acc-content current">
+										<div class="content">
+											<p>Pahado-se offers a wide range of travel packages to destinations around
+												the world, including customized tours, group tours, luxury travel,
+												adventure travel, and more. Our travel specialists work with you to
+												create an itinerary that meets your specific needs and preferences.</p>
+										</div>
+									</div>
+								</li>
+
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn">
+										<div class="icon-outer"><span class="icon fa-solid fa-angle-down fa-fw"></span>
+										</div>How do I book a trip with Pahado-se?
+									</div>
+									<div class="acc-content">
+										<div class="content">
+											<p>Pahado-se offers a wide range of travel packages to destinations around
+												the world, including customized tours, group tours, luxury travel,
+												adventure travel, and more. Our travel specialists work with you to
+												create an itinerary that meets your specific needs and preferences.</p>
+										</div>
+									</div>
+								</li>
+
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn">
+										<div class="icon-outer"><span class="icon fa-solid fa-angle-down fa-fw"></span>
+										</div>What is the payment process for Pahado-se?
+									</div>
+									<div class="acc-content">
+										<div class="content">
+											<p>Pahado-se offers a wide range of travel packages to destinations around
+												the world, including customized tours, group tours, luxury travel,
+												adventure travel, and more. Our travel specialists work with you to
+												create an itinerary that meets your specific needs and preferences.</p>
+										</div>
+									</div>
+								</li>
+
+								<!-- Block -->
+								<li class="accordion block">
+									<div class="acc-btn">
+										<div class="icon-outer"><span class="icon fa-solid fa-angle-down fa-fw"></span>
+										</div>How to cancel my booking in Pahado-se?
+									</div>
+									<div class="acc-content">
+										<div class="content">
+											<p>Pahado-se offers a wide range of travel packages to destinations around
+												the world, including customized tours, group tours, luxury travel,
+												adventure travel, and more. Our travel specialists work with you to
+												create an itinerary that meets your specific needs and preferences.</p>
+										</div>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+						<!-- Title Column -->
+						<div class="faq-two_title-column col-lg-4 col-md-12 col-sm-12">
+							<div class="faq-two_title-inner">
+								<h2 class="faq-two_title" style="color: white !important;">Frequently Asked Questions
+								</h2>
+								<div class="faq-two_text" style="color: white !important;">What our clients usually
+									asked about our services and tours.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Faq Two -->
+
+		<!-- Newsletter One -->
+		<section class="newsletter-one mt-5">
+			<div class="auto-container">
+				<!-- Sec Title Two -->
+				<div class="sec-title_two">
+					<div class="bid-title">newsletter</div>
+					<div class="title">SUBSCRIBE TO OUR NEWSLETTER</div>
+					<div class="sec-title_two-text">To get occasional updates about Himalayas, Interesting facts, events
+						and news share <br> your email address with us. Rest assured, We Do Not Spam. </div>
+				</div>
+				<!-- Title Box -->
+				<div class="cta-one_title-box">
+					<!-- Subscribe Box Two -->
+					<div class="subscribe-box_two">
+						<form method="post" action="contact.html">
+							<div class="form-group">
+								<input type="email" name="email" value=""
+									placeholder="Enter your email address here ..." required="">
+								<button class="submit-btn theme-btn">
+									Subscribe
+								</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- End Newsletter One -->
+
+		<!-- Footer -->
+		<footer class="main-footer style-two">
+			<div class="auto-container">
+				<div class="inner-container">
+					<!-- Upper Box -->
+					<div class="upper-box ">
+						<div class="d-flex  row flex-wrap">
+							<div class="col-md-6 col-6"><h5><b style="color: rgb(222,197,160);">PHONE : </b></h5>+91 78599 28880</div>
+							<div class="col-md-6 col-6"><h5><b style="color: rgb(222,197,160);">EMAIL : </b></h5>contact.pahadose@gmail.com</div>
+							<!-- <div class="col-md-4"><h5><b style="color: rgb(222,197,160);">ADDRESS : </b></h5>Lorem ipsum dolor sit amet.</div> -->
+
+						</div>
+					</div>
+					<div class="upper-box mt-4">
+						<div class="d-flex align-items-center justify-content-between flex-wrap">
+							<div class="footer-logo"><a href="/"><img src="{% static 'assets/images/logoc.png' %}" width="100px"
+										alt="" title=""></a></div>
+							<ul class="footer-nav">
+								<li><a href="/Experiences">Experiences</a></li>
+								<li><a href="/Stays">Stays</a></li>
+								<li><a href="/About">About Us</a></li>
+								<li><a href="/Memories">Memories</a></li>
+								<li><a href="/Blog">Blog</a></li>
+								<li><a href="/Contact">Let’s Connect</a></li>
+							</ul>
+							<!-- Social Box -->
+							<div class="footer-social_box">
+								<a href="https://facebook.com/" class="fab fa-facebook fa-fw"></a>
+								<a href="https://twitter.com/"><svg style="margin-top: -5px !important;"
+										xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="currentColor"
+										class="bi bi-twitter-x" viewBox="0 0 16 16">
+										<path
+											d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+									</svg></a>
+								<a href="www.Instagram.com/experiencesbypahadose" class="fab fa-instagram fa-fw"></a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<!-- End PageWrapper -->
+
+	<!-- Scroll To Top -->
+	<div class="scroll-to-top"><span class="fas fa-arrow-up fa-fw"></span></div>
+
+	<script src="{% static 'assets/js/jquery.js' %}"></script>
+	<script src="{% static 'assets/js/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/appear.js' %}"></script>
+	<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+	<script src="{% static 'assets/js/tilt.jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/owl.js' %}"></script>
+	<script src="{% static 'assets/js/wow.js' %}"></script>
+
+	<script src="{% static 'assets/js/odometer.js' %}"></script>
+	<script src="{% static 'assets/js/isotope.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.marquee.min.js' %}"></script>
+	<script src="{% static 'assets/js/parallax-scroll.js' %}"></script>
+	<script src="{% static 'assets/js/nav-tool.js' %}"></script>
+	<script src="{% static 'assets/js/swiper.min.js' %}"></script>
+	<script src="{% static 'assets/js/mixitup.js' %}"></script>
+	<script src="{% static 'assets/js/swiper.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+
+	<!-- Date Picker -->
+	<script src="{% static 'assets/js/select2.min.js' %}"></script>
+	<script src="{% static 'assets/js/flatpickr.min.js' %}"></script>
+	<script src="{% static 'assets/js/price-range.js' %}"></script>
+
+	<script src="{% static 'assets/js/script.js' %}"></script>
+
+
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+</body>
+
+</html>

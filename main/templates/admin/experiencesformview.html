@@ -1,0 +1,94 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">{{EQ.Name}} Forms</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Experiences Forms</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 pt-0 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row justify-content-start">
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-1">Add Questions</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>1. Questions</b></label>
+                                <textarea name="Q1" id="" class="form-control">{{EQ.Q1}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>2. Questions</b></label>
+                                <textarea name="Q2" id="" class="form-control">{{EQ.Q2}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>3. Questions</b></label>
+                                <textarea name="Q3" id="" class="form-control">{{EQ.Q3}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>4. Questions</b></label>
+                                <textarea name="Q4" id="" class="form-control">{{EQ.Q4}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>5. Questions</b></label>
+                                <textarea name="Q5" id="" class="form-control">{{EQ.Q5}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>6. Questions</b></label>
+                                <textarea name="Q6" id="" class="form-control">{{EQ.Q6}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>7. Questions</b></label>
+                                <textarea name="Q7" id="" class="form-control">{{EQ.Q7}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>8. Questions</b></label>
+                                <textarea name="Q8" id="" class="form-control">{{EQ.Q8}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>9. Questions</b></label>
+                                <textarea name="Q9" id="" class="form-control">{{EQ.Q9}}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>10. Questions</b></label>
+                                <textarea name="Q10" id="" class="form-control">{{EQ.Q10}}</textarea>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="row">
+                                    <button type="submit" class="ms-3 col-5 btn btn-success m-1">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+

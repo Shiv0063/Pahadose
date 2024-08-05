@@ -1,0 +1,94 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Experiences Forms</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Experiences Forms</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 pt-0 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row justify-content-start">
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-1">Add Experiences Forms</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <label for="" class="form-label mb-2"><b>Experiences Forms</b></label>
+                                <select id="Category" class="form-select" name="Name">
+                                    <option selected value="">Choose...</option>
+                                    {% for i in ls %}
+                                        <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="row justify-content-center" style="margin-top: 25px;">
+                                    <button type="submit" class="col-5 btn btn-success m-1">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="card" id=''>
+                    <div class="table-responsive p-2">
+                        <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap display nowrap" style="width:100%">
+                            <thead class="text-uppercase small text-muted">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Experience Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in EQ %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.Name}}</td>
+                                    <td><a class="btn btn-success mr-3" style="margin-left: 5px;" href="/ExperiencesFormDataList/{{i.id}}"><i class="bi bi-eye"></i></a><a href="ExperiencesFormDelete/{{i.id}}" style="margin-left: 5px;" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</div>
+{% endblock content %}
+
+

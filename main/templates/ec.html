@@ -1,0 +1,75 @@
+﻿{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Banner -->
+<section class="page-banner style-two" style="background-image: url(/static/assets/images/New/3.jpeg);  height: 80hv;">
+	<div class="auto-container">
+		<ul class="page-breadbrumbs">
+			<li><a href="#">Home</a></li>
+			<li>Experiences</li>
+		</ul>
+		<h1 class="page-banner_title">{{name}}</h1>
+	</div>
+</section>
+<!-- End Page Banner -->
+
+<!-- Gallery One -->
+<section class="gallery-one">
+	<div class="auto-container">
+		<div class="itinerary-one">
+			<div class="title-box">
+				<div class="d-flex align-items-center justify-content-between flex-wrap">
+					<h4>{{name}}</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				{% for i in dt %}
+				<!-- Itinerary Block One -->
+				<div class="col-12">
+					<div class="row">
+						<div class="col-md-4 mb-3 " style="border-radius: 10px; height: 280px; background: url(/{{i.Image}}); background-repeat: no-repeat; background-size: cover;">
+							<div class="text-center" style="margin-top: 120px;">
+								<h2>
+									<a href="Experiences/{{i.Category}}" class="" style=" font-size: 60px; font-weight: 600; color: white !important;">{{i.Name}}</a>
+								</h2>
+							</div>
+							
+						</div>
+						<div class="col-md-8 d-flex justify-content-center">
+							<div class="align-content-center">
+								<p class="">{{i.SmallDescription}}</p>
+								<center>
+									<a {% if i.View == 'KnowMore' %}href="{{name}}/{{ i.Name }}"{% endif %} class="btn-style-two theme-btn m-auto">
+									<span class="btn-wrap">
+										<span class="text-one">{% if i.View == 'KnowMore' %}Know More{% else %}Coming Soon{% endif %}</span>
+										<span class="text-two">{% if i.View == 'KnowMore' %}Know More{% else %}Coming Soon{% endif %}</span>
+									</span>
+								</a> 
+								</center>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Gallery One -->
+
+{% endblock content %}
+<!-- <div class="itinerary-block_one-inner">
+	<div class="itinerary-block_one-image">
+		<img src="/{{i.Image}}" alt="" class="img-fluid" style="height: 280px;">
+		<div class="itinerary-block_one-content2 text-center">
+			<h2 class="itinerary-block_one-heading text-center">
+				<center>
+					
+				</center></h2>
+		</div>
+	</div>
+</div> -->

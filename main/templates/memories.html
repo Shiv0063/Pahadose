@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" style="background-image: url(static/assets/images/New/place/Place\ \(10\).jpeg)">
+	<div class="auto-container">
+		<ul class="page-breadbrumbs">
+			<li><a href="#">Home</a></li>
+			<li>Memories</li>
+		</ul>
+		<h1 class="page-banner_title">Memories</h1>
+	</div>
+</section>
+<!-- End Page Banner -->
+
+<!-- Gallery Six  -->
+<section class="gallery-six gallery-two p-2">
+	<div class="outer-container">
+		<div class="gallery-carousel-two owl-carousel owl-theme">
+
+			<!-- Image -->
+			<div class="image">
+				<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (1).jpeg' %}"><img
+						src="{% static 'assets/images/New/place/Place (1).jpeg' %}" alt=""></a>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (11).jpeg' %}"><img
+						src="{% static 'assets/images/New/place/Place (11).jpeg' %}" alt=""></a>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<a class="lightbox-image" href="{% static 'assets/images/New/3.jpeg' %}"><img src="{% static 'assets/images/New/3.jpeg' %}" alt=""></a>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- End Gallery Six  -->
+{% endblock content %}

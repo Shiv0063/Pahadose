@@ -1,0 +1,161 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Add Experiences</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item">Experience Details</li>
+                        <li class="breadcrumb-item active">Add Experiences</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-7 col-3 text-md-end">
+                <div class="d-flex justify-content-md-end align-items-center">
+                    <a href="/AExperience" class="btn btn-outline-success mb-2 me-2">Back</a>
+                </div>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 pt-0 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row justify-content-start">
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-1">Add Experiences</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-12">
+                                <label for="" class="form-label"><b>Experiences Category :</b></label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Category</b></label>
+                                <select id="Category" class="form-select" name="Category">
+                                    <option selected value="">Choose...</option>
+                                    {% for i in dt %}
+                                    <option value="{{i.id}}">{{i.Category}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Name</b></label>
+                                <input type="text" class="form-control" name="Name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Image</b></label>
+                                <input type="file" class="form-control" name="Image" id="" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="" class="form-label"><b>Small Description</b></label>
+                                <textarea class="form-control" rows="3" name="SmallDescription"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label for="" class="form-label"><b>Experiences Category Details :</b></label>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="" class="form-label"><b>Description</b></label>
+                                <textarea class="form-control" rows="3" name="Description"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="" class="form-label"><b>Address</b></label>
+                                <textarea class="form-control" rows="3" name="Address"></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Price</b></label>
+                                <input type="text" class="form-control" name="Price" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Days</b></label>
+                                <input type="text" class="form-control" name="Days" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label"><b>Date</b></label>
+                                <input type="date" class="form-control" name="Date" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputEmail4" class="form-label">Status</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="KnowMore"
+                                        id="flexCheckChecked2" name="View" checked>
+                                    <label class="form-check-label">
+                                        Know More...
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio"
+                                        value="ComingSoon" id="flexCheckChecked" name="View">
+                                    <label class="form-check-label" for="">
+                                        Coming Soon!
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row justify-content-center">
+                                    <button type="submit" class="col-5 btn btn-success m-1">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--//Page content End//-->
+
+{% endblock content %}
+
+<!-- {% block script %}
+<script>
+    // insart data
+    $(document).on('submit', '#IncludedForm', function (e) {
+        e.preventDefault();
+        output = '';
+        $.ajax({
+            type: "POST",
+            url: '/IncludedCreate',
+            data: {
+                E_id: $('#E_id').val(),
+                Types: 'Included',
+                Lines: $('#Lines1').val(),
+            },
+            success: function (data) {
+                x = data.show
+                for (i = 0; i < x.length; i++) {
+                    output += "<tr><td>" + x[i].RCCode + "</td><td>" + x[i].Quantity + "</td><td>" + x[i].Rate + "</td><td>" + x[i].Labour + "</td><td>" + x[i].Amount + "</td><td>" + x[i].RCDescription + "</td><td><a type='button' class='btn btn-success btn-edit btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-pen fs-5'></i></a><a type='button' class='btn btn-danger btn-del btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-trash fs-5'></i></a></td></tr>";
+                };
+                $('#tbody').html(output);
+                $('#sid').val('');
+                $('#post-form')[0].reset();
+                var $TotalAmount = $('#TotalAmount');
+                $TotalAmount.val(data.TAmount);
+                var tamount = document.getElementById("tamount");
+                tamount.innerText = data.TAmount;
+                var tamount2 = document.getElementById("tamount2");
+                tamount2.innerText = data.TAmount;
+            },
+        })
+
+    })
+
+</script>
+{% endblock script %} -->

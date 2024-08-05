@@ -1,0 +1,170 @@
+﻿{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Banner -->
+<section class="page-banner style-two" style="background-image: url(static/assets/images/New/3.jpeg)">
+	<div class="auto-container">
+		<ul class="page-breadbrumbs">
+			<li><a href="#">Home</a></li>
+			<li>Stays</li>
+		</ul>
+		<h1 class="page-banner_title">Stays</h1>
+	</div>
+</section>
+<!-- End Page Banner -->
+
+<!-- Booking Two -->
+<section class="booking-two">
+	<div class="auto-container">
+		<div class="inner-container">
+
+			<!-- Booking Form -->
+			<div class="booking-form">
+				<form method="post">
+					<div class="row clearfix">
+						<!-- Form Group -->
+						<div class="form-group col-md-3 col-sm-12">
+							<label>Destination / stays Name*</label>
+							<input class="" type="text" name="calendar"
+								placeholder="stays" required="">
+						</div>
+						<!-- Form Group -->
+						<div class="form-group col-md-3 col-sm-12">
+							<label>Desire Date*</label>
+							<input class="flatpickr" type="text" name="calendar"
+								placeholder="Select Date" required="">
+						</div>
+						<!-- Form Group -->
+						<div class="form-group col-md-3 col-sm-12">
+							<div class="form-group_inner">
+								<label>Price</label>
+								<input type="text" name="text" placeholder="1,000 - 2,000"
+									value="">
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-12" style="margin-top: 43px;">
+							<button class="btn-style-two theme-btn">
+								<span class="btn-wrap">
+									<span class="text-one">Search Hotel</span>
+									<span class="text-two">Search Hotel</span>
+								</span>
+							</button>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- End Booking Two -->
+
+<!-- Promo One -->
+<section class="promo-one mb-4" style="margin-top: 100px;">
+	<div class="auto-container">
+		<div class="promo-carousel owl-carousel owl-theme">
+			<!-- Promo Block One -->
+			<div class="promo-block_one">
+				<div class="promo-block_one-inner">
+					<div class="promo-block_one-image">
+						<img src="{% static 'assets/images/New/rooms/2 (2).jpeg' %}" alt="">
+						<div class="rating">
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+						</div>
+						<div class="promo-block_one-content">
+							<h1 class="promo-block_one-title"><a href="stays-details.html">Uttarakhand</a>
+							</h1>
+							<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+								buffet during your stay for free in this Rome hotel.</div>
+							<div class="promo-block_one-button">
+								<a href="stays-details.html" class="theme-btn book-btn">Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Promo Block One -->
+			<div class="promo-block_one">
+				<div class="promo-block_one-inner">
+					<div class="promo-block_one-image">
+						<img src="{% static 'assets/images/New/rooms/1 (4).jpeg' %}" alt="">
+						<div class="rating">
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+						</div>
+						<div class="promo-block_one-content">
+							<h1 class="promo-block_one-title"><a href="stays-details.html">Himachal</a></h1>
+							<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+								buffet during your stay for free in this Rome hotel.</div>
+							<div class="promo-block_one-button">
+								<a href="stays-details.html" class="theme-btn book-btn">Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Promo Block One -->
+			<div class="promo-block_one">
+				<div class="promo-block_one-inner">
+					<div class="promo-block_one-image">
+						<img src="{% static 'assets/images/New/rooms/2 (2).jpeg' %}" alt="">
+						<div class="rating">
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+						</div>
+						<div class="promo-block_one-content">
+							<h1 class="promo-block_one-title"><a href="stays-details.html">Uttarakhand</a>
+							</h1>
+							<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+								buffet during your stay for free in this Rome hotel.</div>
+							<div class="promo-block_one-button">
+								<a href="stays-details.html" class="theme-btn book-btn">Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Promo Block One -->
+			<div class="promo-block_one">
+				<div class="promo-block_one-inner">
+					<div class="promo-block_one-image">
+						<img src="{% static 'assets/images/New/rooms/1 (4).jpeg' %}" alt="">
+						<div class="rating">
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+						</div>
+						<div class="promo-block_one-content">
+							<h1 class="promo-block_one-title"><a href="stays-details.html">Himachal</a></h1>
+							<div class="promo-block_one-text">Book now and receive a complimentary breakfast
+								buffet during your stay for free in this Rome hotel.</div>
+							<div class="promo-block_one-button">
+								<a href="stays-details.html" class="theme-btn book-btn">Book Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Promo One -->
+
+{% endblock content %}

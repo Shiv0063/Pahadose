@@ -1,0 +1,50 @@
+﻿{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Page Banner -->
+<section class="page-banner style-two" style="background-image: url(static/assets/images/New/3.jpeg)">
+	<div class="auto-container">
+		<ul class="page-breadbrumbs">
+			<li><a href="#">Home</a></li>
+			<li>Experiences</li>
+		</ul>
+		<h1 class="page-banner_title">Experiences</h1>
+	</div>
+</section>
+<!-- End Page Banner -->
+
+<!-- Gallery One -->
+<section class="gallery-one">
+	<div class="auto-container">
+		<div class="itinerary-one">
+			<div class="title-box">
+				<div class="d-flex align-items-center justify-content-between flex-wrap">
+					<h4>Experiences</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				{% for i in dt %}
+				<!-- Itinerary Block One -->
+				<div class="itinerary-block_one col-md-4 mb-3">
+					<div class="itinerary-block_one-inner">
+						<div class="itinerary-block_one-image">
+							<img src="{{i.Image}}" alt="" class="img-fluid" style="height: 280px;">
+							<div class="itinerary-block_one-content">
+								<h1 class="itinerary-block_one-heading"><a href="Experiences/{{i.Category}}">{{i.Category}}</a></h1>
+								<div class="itinerary-block_one-text">{{i.Description}}</div>
+								<a class="itinerary-block_one-arrow flaticon-next-2"
+									href="Experiences/{{i.Category}}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %} 
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Gallery One -->
+
+{% endblock content %}
