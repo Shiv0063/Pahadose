@@ -87,14 +87,14 @@ WSGI_APPLICATION = 'PahadoSe.wsgi.application'
 # Render postgresSQL database
 import dj_database_url
 
-RENDER_EXTERNAL_HOSTNAME = "postgresql://pahadose_user:TWyJKC4Cnoa3Z960rbsLwnoyBWMf7As3@dpg-cqodqo3v2p9s73aob44g-a.singapore-postgres.render.com/pahadose"
+RENDER_EXTERNAL_HOSTNAME = "postgresql://pahadose_f0t8_user:oqi173Oed3IQQE4zKUFOTE7AEpgESDkP@dpg-cqp4qu88fa8c73c6qfk0-a.singapore-postgres.render.com/pahadose_f0t8"
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://pahadose_user:TWyJKC4Cnoa3Z960rbsLwnoyBWMf7As3@dpg-cqodqo3v2p9s73aob44g-a.singapore-postgres.render.com/pahadose',
+        default='postgresql://pahadose_f0t8_user:oqi173Oed3IQQE4zKUFOTE7AEpgESDkP@dpg-cqp4qu88fa8c73c6qfk0-a.singapore-postgres.render.com/pahadose_f0t8',
         conn_max_age=600
     )
 }
