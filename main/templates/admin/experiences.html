@@ -56,7 +56,7 @@
                                     <td>{{forloop.counter}}</td>
                                     <td>{% for j in ec %}{% if i.EC_id == j.id %}{{j.Category}}{% endif %}{% endfor %}</td>
                                     <td>{{i.Name}}</td>
-                                    <td>{{i.Address}}</td>
+                                    <td><textarea class="form-control" style="border: none !important;;" readonly>{{i.Address}}</textarea></td>
                                     <td>{{i.Price}}</td>
                                     <td>{{i.Days}}</td>
                                     <td>{{i.Date}}</td>

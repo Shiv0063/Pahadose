@@ -17,24 +17,13 @@
 <section class="gallery-six gallery-two p-2">
 	<div class="outer-container">
 		<div class="gallery-carousel-two owl-carousel owl-theme">
-
+			{% for i in dt %}
 			<!-- Image -->
 			<div class="image">
-				<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (1).jpeg' %}"><img
-						src="{% static 'assets/images/New/place/Place (1).jpeg' %}" alt=""></a>
+				<a class="lightbox-image" href="/{{i.Image}}"><img
+						src="/{{i.Image}}" alt=""></a>
 			</div>
-
-			<!-- Image -->
-			<div class="image">
-				<a class="lightbox-image" href="{% static 'assets/images/New/place/Place (11).jpeg' %}"><img
-						src="{% static 'assets/images/New/place/Place (11).jpeg' %}" alt=""></a>
-			</div>
-
-			<!-- Image -->
-			<div class="image">
-				<a class="lightbox-image" href="{% static 'assets/images/New/3.jpeg' %}"><img src="{% static 'assets/images/New/3.jpeg' %}" alt=""></a>
-			</div>
-
+			{% endfor %}
 		</div>
 	</div>
 </section>

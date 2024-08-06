@@ -41,6 +41,13 @@
                             <thead class="text-uppercase small text-muted">
                                 <tr>
                                     <th>No</th>
+                                    <th>Full Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Email Address</th>
+                                    <th>Phone Number</th>
+                                    <th>State</th>
+                                    <th>City</th>
+                                    <th>Statement of Purpose</th>
                                     {% if EQ.Q1 != '' %}<th>{{EQ.Q1}}</th>{% endif %}
                                     {% if EQ.Q2 != '' %}<th>{{EQ.Q2}}</th>{% endif %}
                                     {% if EQ.Q3 != '' %}<th>{{EQ.Q3}}</th>{% endif %}
@@ -55,7 +62,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                {% for i in EA %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.FullName}}</td>
+                                    <td>{{i.DOB}}</td>
+                                    <td>{{i.Email}}</td>
+                                    <td>{{i.ContactNo}}</td>
+                                    <td>{{i.State}}</td>
+                                    <td>{{i.City}}</td>
+                                    <td>{{i.SOP}}</td>
+                                    {% if EQ.Q1 != '' %}<td>{{i.A1}}</td>{% endif %}
+                                    {% if EQ.Q2 != '' %}<td>{{i.A2}}</td>{% endif %}
+                                    {% if EQ.Q3 != '' %}<td>{{i.A3}}</td>{% endif %}
+                                    {% if EQ.Q4 != '' %}<td>{{i.A4}}</td>{% endif %}
+                                    {% if EQ.Q5 != '' %}<td>{{i.A5}}</td>{% endif %}
+                                    {% if EQ.Q6 != '' %}<td>{{i.A6}}</td>{% endif %}
+                                    {% if EQ.Q7 != '' %}<td>{{i.A7}}</td>{% endif %}
+                                    {% if EQ.Q8 != '' %}<td>{{i.A8}}</td>{% endif %}
+                                    {% if EQ.Q9 != '' %}<td>{{i.A9}}</td>{% endif %}
+                                    {% if EQ.Q10 != '' %}<td>{{i.A10}}</td>{% endif %}
+                                    <td></td>
+                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>

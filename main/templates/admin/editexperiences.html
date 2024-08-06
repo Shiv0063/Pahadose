@@ -6,12 +6,12 @@
     <div class="position-relative container-fluid px-0">
         <div class="row align-items-center position-relative">
             <div class="col-md-5 col-9 mb-4 mb-lg-0">
-                <h3 class="mb-2">Add Experiences</h3>
+                <h3 class="mb-2">Edit Experiences</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item">Experience Details</li>
-                        <li class="breadcrumb-item active">Add Experiences</li>
+                        <li class="breadcrumb-item active">Edit Experiences</li>
                     </ol>
                 </nav>
             </div>
@@ -38,7 +38,7 @@
             <div class="col-md-12 mb-4">
                 <div class="card h-100">
                     <div class="card-header">
-                        <h5 class="mb-1">Add Experiences</h5>
+                        <h5 class="mb-1">Edit Experiences</h5>
                     </div>
                     <div class="card-body">
                         <form class="row g-3" method="post" enctype="multipart/form-data">
@@ -50,58 +50,62 @@
                                 <label for="" class="form-label"><b>Category</b></label>
                                 <select id="Category" class="form-select" name="Category">
                                     <option selected value="">Choose...</option>
-                                    {% for i in dt %}
-                                    <option value="{{i.id}}">{{i.Category}}</option>
+                                    {% for i in eq %}
+                                    <option value="{{i.id}}" {% if i.id == dt.EC_id %} selected {% endif %}>{{i.Category}}
+                                    </option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Name</b></label>
-                                <input type="text" class="form-control" name="Name" required>
+                                <input type="text" class="form-control" name="Name" value="{{dt.Name}}">
                             </div>
                             <div class="col-md-4">
+                                <label for="" class="form-label"><b> Old Image</b></label>
+                                <img src="/{{dt.Image}}" style="width: 300px; border-radius: 10px;" alt="">
                                 <label for="" class="form-label"><b>Image</b></label>
-                                <input type="file" class="form-control" name="Image" id="" required>
+                                <input type="file" class="form-control" name="Image" id="">
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Small Description</b></label>
-                                <textarea class="form-control" rows="3" name="SmallDescription"></textarea>
+                                <textarea class="form-control" rows="3"
+                                    name="SmallDescription">{{dt.SmallDescription}}</textarea>
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-label"><b>Experiences Category Details :</b></label>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Description</b></label>
-                                <textarea class="form-control" rows="3" name="Description"></textarea>
+                                <textarea class="form-control" rows="3" name="Description">{{dt.Description}}</textarea>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Address</b></label>
-                                <textarea class="form-control" rows="3" name="Address"></textarea>
+                                <textarea class="form-control" rows="3" name="Address">{{dt.Address}}</textarea>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Price</b></label>
-                                <input type="text" class="form-control" name="Price" required>
+                                <input type="text" class="form-control" name="Price" value="{{dt.Price}}">
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Days</b></label>
-                                <input type="text" class="form-control" name="Days" required>
+                                <input type="text" class="form-control" name="Days" value="{{dt.Days}}">
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Date</b></label>
-                                <input type="date" class="form-control" name="Date" required>
+                                <input type="date" class="form-control" name="Date" id="Date">
                             </div>
                             <div class="col-md-3">
                                 <label for="inputEmail4" class="form-label">Status</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="KnowMore"
-                                        id="flexCheckChecked2" name="View" checked>
+                                    <input class="form-check-input" type="radio" value="KnowMore" id="flexCheckChecked2"
+                                        name="View" {% if dt.View == 'KnowMore' %} checked {% endif %}>
                                     <label class="form-check-label">
                                         Know More...
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio"
-                                        value="ComingSoon" id="flexCheckChecked" name="View">
+                                    <input class="form-check-input" type="radio" value="ComingSoon"
+                                        id="flexCheckChecked" name="View" {% if dt.View == 'ComingSoon' %} checked {% endif %}>
                                     <label class="form-check-label" for="">
                                         Coming Soon!
                                     </label>
@@ -124,38 +128,15 @@
 
 {% endblock content %}
 
-<!-- {% block script %}
+{% block script %}
 <script>
-    // insart data
-    $(document).on('submit', '#IncludedForm', function (e) {
-        e.preventDefault();
-        output = '';
-        $.ajax({
-            type: "POST",
-            url: '/IncludedCreate',
-            data: {
-                E_id: $('#E_id').val(),
-                Types: 'Included',
-                Lines: $('#Lines1').val(),
-            },
-            success: function (data) {
-                x = data.show
-                for (i = 0; i < x.length; i++) {
-                    output += "<tr><td>" + x[i].RCCode + "</td><td>" + x[i].Quantity + "</td><td>" + x[i].Rate + "</td><td>" + x[i].Labour + "</td><td>" + x[i].Amount + "</td><td>" + x[i].RCDescription + "</td><td><a type='button' class='btn btn-success btn-edit btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-pen fs-5'></i></a><a type='button' class='btn btn-danger btn-del btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-trash fs-5'></i></a></td></tr>";
-                };
-                $('#tbody').html(output);
-                $('#sid').val('');
-                $('#post-form')[0].reset();
-                var $TotalAmount = $('#TotalAmount');
-                $TotalAmount.val(data.TAmount);
-                var tamount = document.getElementById("tamount");
-                tamount.innerText = data.TAmount;
-                var tamount2 = document.getElementById("tamount2");
-                tamount2.innerText = data.TAmount;
-            },
-        })
-
-    })
-
+    function formatDate(d) {
+        let day = ("0" + d.getDate()).slice(-2);
+        let month = ("0" + (d.getMonth() + 1)).slice(-2);
+        let year = d.getFullYear();
+        return `${year}-${month}-${day}`;
+    }
+    DF = new Date('{{dt.Date}}')
+    document.getElementById("Date").value = formatDate(DF);
 </script>
-{% endblock script %} -->
+{% endblock script %}

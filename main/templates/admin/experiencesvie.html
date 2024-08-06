@@ -35,23 +35,29 @@
     <div class="container-fluid px-0">
         <div class="">
             <div class="row">
-                <div class="card p-2">
-                    <div class="col-md-12 h5"><b><u>Experiences Category :-</u></b></div>
-                    <div class="col-md-6 h5"><u><b>Category</b></u>: {{ec.Category}}</div>
-                    <div class="col-md-6 h5"><u><b>Name</b></u>: {{dt.Name}}</div>
-                    <div class="col-md-6 h5"><u><b>Description</b></u>: {{dt.SmallDescription}}</div>
+                <div class="card p-2 ">
+                    <div class="row">
+                    <div class="col-md-12 mb-2"><b>Experiences Category :-</b></div>
+                    <div class="col-md-6 mb-2"><b class="me-5">Category :</b> {{ec.Category}}</div>
+                    <div class="col-md-6 mb-2"><b class="me-5">Name :</b> {{dt.Name}}</div>
+                    <div class="col-md-12 mb-2"><b >Description :</b><br> {{dt.SmallDescription}}</div>     
+                    </div>
+                    
                 </div>
                 <div class="card mt-2 p-2">
-                    <div class="col-md-12 h5"><b><u>Experiences Category Data:-</u></b></div>
-                    <div class="col-md-12 h5"><u><b>Description</b></u>: {{dt.Description}}</div>
-                    <div class="col-md-12 h5"><u><b>Address</b></u>: {{dt.Address}}</div>
-                    <div class="col-md-4 h5"><u><b>Price</b></u>: {{dt.Price}}</div>
-                    <div class="col-md-4 h5"><u><b>Days</b></u>: {{dt.Days}}</div>
-                    <div class="col-md-4 h5"><u><b>Date</b></u>: {{dt.Date}}</div>
+                    <div class="row">
+                    <div class="col-md-12 mb-2"><b>Experiences Category Data:-</b></div>
+                    <div class="col-md-12 mb-2"><b>Description :</b> {{dt.Description}}</div>
+                    <div class="col-md-12 mb-2"><b class="me-5">Address :</b> {{dt.Address}}</div>
+                    <div class="col-md-4 mb-2"><b class="me-5">Price :</b> {{dt.Price}}</div>
+                    <div class="col-md-4 mb-2"><b class="me-5">Days :</b> {{dt.Days}}</div>
+                    <div class="col-md-4 mb-2"><b class="me-5">Date :</b> {{dt.Date}}</div>
+                    </div>
+                    
                 </div>
                 <div class="card mt-2 p-2" id="FIncluded">
-                    <div class="col-md-12 h5"><b><u>Experiences Included:-</u></b></div>
-                    <div class="col-md-12 h5">
+                    <div class="col-md-12 mb-2"><b>Experiences Included:-</b></div>
+                    <div class="col-md-12">
                         <div class="">
                             <form method="post">
                             {% csrf_token %}
@@ -63,13 +69,13 @@
                     </div>
                     {% for i in EIN %}
                     {% if i.Types == 'Included' %}
-                    <div class="col-md-12 h5"> >.  {{i.Lines}}</div><p class="text-end"><a href="/DeleteIncluded/{{i.id}}" class="text-danger">Delete</a></p>
+                    <div class="col-md-12"> >  {{i.Lines}}</div><p class="text-end"><a href="/DeleteIncluded/{{i.id}}" class="text-danger">Delete</a></p>
                     {% endif %}
                     {% endfor %}
                 </div>
                 <div class="card mt-2 p-2" id="FNotIncluded">
-                    <div class="col-md-12 h5"><b><u>Experiences Not Included:-</u></b></div>
-                    <div class="col-md-12 h5">
+                    <div class="col-md-12 mb-2"><b>Experiences Not Included:-</b></div>
+                    <div class="col-md-12">
                         <div class="">
                             <form method="post">
                             {% csrf_token %}
@@ -81,19 +87,20 @@
                     </div>
                     {% for i in EIN %}
                     {% if i.Types == 'NotIncluded' %}
-                    <div class="col-md-12 h5"> >.  {{i.Lines}}</div><p class="text-end"><a href="/DeleteIncluded/{{i.id}}" class="text-danger">Delete</a></p>
+                    <div class="col-md-12"> > {{i.Lines}}</div><p class="text-end"><a href="/DeleteIncluded/{{i.id}}" class="text-danger">Delete</a></p>
                     {% endif %}
                     {% endfor %}
                 </div>  
                 <div class="card mt-2 p-2" id="Images">
-                    <div class="col-md-12 h5"><b><u>Experiences Images:-</u></b></div>
-                    <div class="col-md-12 h5">
+                    <div class="col-md-12 mb-2"><b>Experiences Images:-</b></div>
+                    <div class="col-md-12">
                         <div class="">
                             <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                                 <input type="file" class="form-control mb-2" name="Image" required>
                                 <input type="hidden" name="E_id" value="{{dt.id}}">
-                                <button type="submit" class="btn btn-success ">Save</button>
+                                <button type="submit" class="btn btn-success mb-2">Save</button>
+
                             </form>
                         </div>
                     </div>
@@ -102,7 +109,6 @@
                     <div class="col-md-3"><center><img src="/{{i.Image}}" style="width: 200px; height: 130px; border-radius: 7px;" alt="" class="img-fluid mb-2"><br><a href="/ExImageDelete/{{i.id}}" class="btn btn-danger">Delete</a></center> </div>
                     {% endfor %}
                     </div>
-                    
                 </div>
             </div>
         </div>

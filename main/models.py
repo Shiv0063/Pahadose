@@ -1,6 +1,18 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+class UserDetails(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    FullName = models.CharField(max_length=100,null=True, blank=True)
+    phone = models.CharField(max_length=100,null=True, blank=True)
+
+    @property
+    def email(self):
+        return self.user.email
+    
+    @property
+    def username(self):
+        return self.user.username
 
 class ExperienceCategory(models.Model):
     Category = models.CharField(max_length=100,null=True, blank=True)
@@ -101,3 +113,11 @@ class ExperienceFormsA(models.Model):
     A15 = models.TextField(default='',blank=True)
     A16 = models.TextField(default='',blank=True)
     A17 = models.TextField(default='',blank=True)
+
+class MemoriesModel(models.Model):
+    Image = models.FileField(upload_to='Memories',null=True, blank=True)
+
+    def delete(self, *args, **kwargs):
+        self.Image.delete()
+        super().delete(*args, **kwargs)
+

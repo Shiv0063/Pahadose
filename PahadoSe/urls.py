@@ -30,7 +30,11 @@ urlpatterns = [
     path('Memories',views.Memories),
     path('Blog',views.Blog),
     path('Contact',views.Contact),
-    path('Login',views.Login),
+    path('Login',views.Login_in,name='Login'),
+    path('login',views.Login_in,name='Login'),
+    path('Logout',views.Logout,name='Logout'),
+    path('logout',views.Logout,name='Logout'),
+    path('SignUp',views.SignUp),
     path('Admin',views.Admin),
     path('AExperience',views.AExperience),
     path('ExperienceForm',views.ExperienceForm),
@@ -39,6 +43,7 @@ urlpatterns = [
     path('ExperiencesForm/<str:name>',views.ExperiencesForm),
     path('AddExperiences',views.AddExperiences),
     path('ExperiencesView/<int:id>',views.ExperiencesView),
+    path('ExperiencesEdit/<int:id>',views.ExperiencesEdit),
     path('ExperiencesFormDelete/<int:id>',views.ExperiencesFormDelete),
     path('FIncluded',views.FIncluded),
     path('FNotIncluded',views.FNotIncluded),
@@ -48,7 +53,10 @@ urlpatterns = [
     path('IncludedCreate',views.IncludedCreate),
     path('ExperienceCategory',views.Category),
     path('AddCategory',views.AddCategory),
+    path('EditCategory/<int:id>',views.EditCategory),
     path('DeleteCategory/<int:id>',views.CategoryDelete),
+    path('AMemories',views.AMemories),
+    path('MemoriesIDelete/<int:id>',views.MemoriesIDelete),
 
 
 

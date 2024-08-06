@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="card" id=''>
                     <div class="table-responsive p-2">
-                        <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap display nowrap" style="width:100%">
+                        <table  id="exampletab" class="table mt-0 table-striped table-card table-nowrap display nowrap" style="width:100%;">
                             <thead class="text-uppercase small text-muted">
                                 <tr>
                                     <th>Image</th>
@@ -51,7 +51,7 @@
                                 <tr>
                                     <td><img src="{{i.Image}}" class="img-fluid" style="border-radius: 7px;" alt="" width="200px"></td>
                                     <td>{{i.Category}}</td>
-                                    <td>{{i.Description}}</td>
+                                    <td><textarea class="form-control" style="border: none !important;;" readonly>{{i.Description}}</textarea></td>
                                     <td><a class="btn btn-success mr-3" href="/EditCategory/{{i.id}}"><i class="bi bi-pen"></i></a><a href="DeleteCategory/{{i.id}}" style="margin-left: 5px;" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
 
                                 </tr>
@@ -62,7 +62,6 @@
                 </div>
             </div>
         </div>
- 
     </div>
 </div>
 {% endblock content %}

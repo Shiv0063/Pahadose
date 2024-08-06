@@ -89,6 +89,20 @@
 						<div class="other_elements_wrapper d-flex align-items-center gap-4">
 							<!-- Button Box -->
 							<div class="button-box d-none d-sm-block">
+								{% if request.user.is_authenticated %}
+								<a class="btn-style-one theme-btn" href="/Logout">
+									<div class="btn-wrap">
+										<span class="text-one">Logout</span>
+										<span class="text-two">Logout</span>
+									</div>
+								</a>
+								<a class="btn-style-two theme-btn" href="/Logout">
+									<div class="btn-wrap">
+										<span class="text-one">Logout</span>
+										<span class="text-two">Logout</span>
+									</div>
+								</a>
+								{% else %}
 								<a class="btn-style-one theme-btn" href="/Login">
 									<div class="btn-wrap">
 										<span class="text-one">Sign In</span>
@@ -101,6 +115,7 @@
 										<span class="text-two">Sign In</span>
 									</div>
 								</a>
+								{% endif %}
 							</div>
 
 							<!-- Mobile Menu Toggle Button -->

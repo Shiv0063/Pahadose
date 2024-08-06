@@ -1,0 +1,77 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Memories</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Memories</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 pt-0 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row justify-content-start">
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-1">Memories Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <!-- <label for="" class="form-label mb-2"><b>Memories Images</b></label> -->
+                                <input type="file" class="form-control" name="Image">
+                            </div>
+                            <div class="col-md-2">
+                                <div class="row justify-content-center">
+                                    <button type="submit" class="col-5 btn btn-success">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="card p-2">
+                    <div class="row">
+                        {% for i in dt %}
+                        <div class="col-md-3 mt-2 mb-2">
+                            <center><img src="/{{i.Image}}" style="width: 200px; height: 130px; border-radius: 7px;"
+                                    alt="" class="img-fluid mb-2"><br><a href="/MemoriesIDelete/{{i.id}}"
+                                    class="btn btn-danger">Delete</a></center>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

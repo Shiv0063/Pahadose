@@ -1,10 +1,61 @@
 from django.shortcuts import render,redirect
-from .models import Experience,ExperienceCategory,ExperienceImages,ExperienceIncluded,ExperienceFormsQ,ExperienceFormsA
+from .models import Experience,ExperienceCategory,ExperienceImages,ExperienceIncluded,ExperienceFormsQ,ExperienceFormsA,MemoriesModel,UserDetails
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User,Group
 from django.http import HttpResponse,JsonResponse
 from django.db.models import Q
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required,user_passes_test
+import os
+from urllib.parse import urlparse, parse_qs
 # Create your views here.
 # Pahado Se Front-Side
+def Login_in(request):
+    if request.method=="POST":
+        email=request.POST.get('Email')
+        try:
+            userd = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return redirect('/Login')
+        username = userd.username
+        password=request.POST.get('Password')
+        user=authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user) 
+            parsed_url = urlparse(request.META.get('HTTP_REFERER'))
+            next_url = parse_qs(parsed_url.query)['next'][0]
+            if next_url:
+                return redirect(next_url)
+            return redirect('/')
+    return render(request,'login.html')
+
+def Logout(request):
+    logout(request)
+    return redirect('/')
+
+def SignUp(request):
+    if request.method=="POST":
+        Fullname = request.POST.get('Fullname')
+        Email = request.POST.get('Email')
+        Phone = request.POST.get('Phone')
+        password = request.POST.get('Password')
+        username = Fullname
+        emailaddress = Email
+        dt=User.objects.filter(username=Fullname).exists()
+        if dt == True:
+            return redirect('/SignUp')
+        dt=User.objects.filter(email=Email).exists()
+        if dt == True:
+            return redirect('/SignUp')
+        new_user= User.objects.create_user(username,emailaddress,password)
+        new_user.save()
+        dg=User.objects.get(email=Email)
+        userd=UserDetails.objects.create(user_id=dg.id,FullName=Fullname,phone=Phone)
+        userd.save()
+        # messages.success(request,'New User Create Successfully.')
+        return redirect('/Login')
+    return render(request,'signup.html')
+
 def home(request):
     dt=Experience.objects.all()[:2]
     dt2=Experience.objects.all()
@@ -25,16 +76,41 @@ def ECategory(request,name):
 def ExperiencesDetails(request,Category,Name):
     ec=ExperienceCategory.objects.get(Category=Category)
     dt=Experience.objects.get(EC_id=ec.id,Name=Name)
+    if dt.View == 'ComingSoon':
+        return redirect(f'/Experiences/{Category}')
     fm= ExperienceFormsQ.objects.filter(Name=Name).exists()
     EDI = ExperienceIncluded.objects.filter(E_id=dt.id)
     EIM = ExperienceImages.objects.filter(E_id=dt.id)
     data={'dt':dt,'ec':ec,'EDI':EDI,'EIM':EIM,'fm':fm}
     return render(request,'experiences-details.html',data)
 
+@login_required(login_url='Login')
 def ExperiencesForm(request,name):
     fm= ExperienceFormsQ.objects.get(Name=name)
     dt=Experience.objects.get(id=fm.E_id)
+    dg= ExperienceCategory.objects.get(id=dt.EC_id)
     data={'fm':fm,'dt':dt}
+    if request.method == 'POST':
+        FullName = request.POST.get('FullName')
+        DOB = request.POST.get('DOB')
+        Email = request.POST.get('email')
+        ContactNo = request.POST.get('phone')
+        State = request.POST.get('State')
+        City = request.POST.get('City')
+        SOP = request.POST.get('SOP')
+        A1 = request.POST.get('A1') or ''
+        A2 = request.POST.get('A2') or ''
+        A3 = request.POST.get('A3') or ''
+        A4 = request.POST.get('A4') or ''
+        A5 = request.POST.get('A5') or ''
+        A6 = request.POST.get('A6') or ''
+        A7 = request.POST.get('A7') or ''
+        A8 = request.POST.get('A8') or ''
+        A9 = request.POST.get('A9') or ''
+        A10 = request.POST.get('A10') or ''
+        dt2= ExperienceFormsA.objects.create(E_id=dt.id,Name=dt.Name,FullName=FullName,DOB=DOB,Email=Email,ContactNo=ContactNo,State=State,City=City,SOP=SOP,A1=A1,A2=A2,A3=A3,A4=A4,A5=A5,A6=A6,A7=A7,A8=A8,A9=A9,A10=A10)
+        dt2.save()
+        return redirect(f'/Experiences/{dg.Category}/{dt.Name}')
     return render(request,'experiencesform.html',data)
 
 def Stays(request):
@@ -44,7 +120,9 @@ def About(request):
     return render(request,'about.html')
 
 def Memories(request):
-    return render(request,'memories.html')
+    dt=MemoriesModel.objects.all()
+    data = {'dt':dt}
+    return render(request,'memories.html',data)
 
 def Blog(request):
     return redirect('/')
@@ -52,10 +130,6 @@ def Blog(request):
 
 def Contact(request):
     return render(request,'contact.html')
-
-def Login(request):
-    return render(request,'login.html')
-
 # Pahado Se Admin-Side
 def Admin(request):
     return render(request,'admin/dashboard.html')
@@ -87,6 +161,30 @@ def AddExperiences(request):
         return redirect('/AExperience')
     return render(request,'admin/addexperiences.html',data)
 
+def ExperiencesEdit(request,id):
+    dt=Experience.objects.get(id=id)
+    eq=ExperienceCategory.objects.all()
+    # ExperienceIncluded.objects.all().delete()
+    data={'dt':dt,'eq':eq}
+    if request.method=="POST": 
+        Categoryid=request.POST.get('Category')
+        dt=ExperienceCategory.objects.get(id=Categoryid)
+        gh=Experience.objects.get(id=id)
+        gh.Name=request.POST.get('Name')
+        if request.FILES.get('Image'):
+            os.remove(gh.Image.path)
+            gh.Image = request.FILES.get('Image')
+        gh.SmallDescription=request.POST.get('SmallDescription')
+        gh.Description=request.POST.get('Description')
+        gh.Address=request.POST.get('Address')
+        gh.Price=request.POST.get('Price')
+        gh.Days=request.POST.get('Days')
+        gh.Date=request.POST.get('Date')
+        gh.View=request.POST.get('View')
+        gh.save()
+        return redirect('/AExperience')
+    return render(request,'admin/editexperiences.html',data)
+
 @csrf_exempt
 def IncludedCreate(request):
     if request.method == 'POST':
@@ -111,6 +209,19 @@ def AddCategory(request):
         dt.save()
         return redirect('/ExperienceCategory')
     return render(request,'admin/addcategory.html')
+
+def EditCategory(request,id):
+    dt=ExperienceCategory.objects.get(id=id)
+    data={'dt':dt}
+    if request.method=="POST": 
+        dt.Category=request.POST.get('Category')
+        dt.Description=request.POST.get('Description')
+        if request.FILES.get('Image'):
+            os.remove(dt.Image.path)
+            dt.Image = request.FILES.get('Image')
+        dt.save()
+        return redirect('/ExperienceCategory')
+    return render(request,'admin/editcategory.html',data)
 
 def CategoryDelete(request,id):
     dt=ExperienceCategory.objects.get(id=id)
@@ -177,7 +288,6 @@ def ExperienceForm(request):
     for j in EQ:
         EQ2.append(j.Name)
     lsr = [i.Name for i in dt if i.Name not in EQ2]
-    print(lsr)
     if lsr == []:
         ls = []
     elif lsr == dt2:
@@ -222,5 +332,29 @@ def ExperienceFormView(request,id):
 def ExperiencesFormDataList(request,id):
     EQ = ExperienceFormsQ.objects.get(id=id)
     dt=Experience.objects.filter(id=EQ.E_id,Name=EQ.Name)
-    data={'EQ':EQ,'dt':dt}
+    EA = ExperienceFormsA.objects.filter(E_id=EQ.E_id)
+    data={'EQ':EQ,'dt':dt,'EA':EA}
     return render(request,'admin/experiencesdatalist.html',data)
+
+def AMemories(request):
+    dt=MemoriesModel.objects.all()
+    data={'dt':dt}
+    if request.method == 'POST':
+        Image = request.FILES.get('Image')
+        df= MemoriesModel.objects.create(Image=Image)
+        df.save()
+        return redirect('/AMemories')
+    return render(request,'admin/memories.html',data)
+
+def MemoriesIDelete(request,id):
+    dt=MemoriesModel.objects.get(id=id)
+    dt.delete()
+    return redirect('/AMemories')
+
+def DeleteQ():
+    Experience.objects.all().delete()
+    ExperienceCategory.objects.all().delete()
+    ExperienceImages.objects.all().delete()
+    ExperienceFormsA.objects.all().delete()
+    ExperienceFormsQ.objects.all().delete()
+    ExperienceIncluded.objects.all().delete()
