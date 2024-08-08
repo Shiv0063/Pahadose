@@ -65,14 +65,14 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Small Description</b></label>
-                                <textarea class="form-control" rows="3" name="SmallDescription"></textarea>
+                                <textarea class="form-control bg-black" style="color: #000 !important;" name="SmallDescription" id="SmallDescription"></textarea>
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-label"><b>Experiences Category Details :</b></label>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Description</b></label>
-                                <textarea class="form-control" rows="3" name="Description"></textarea>
+                                <textarea class="form-control" style="color: #000 !important;" name="Description" id="Description"></textarea>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Address</b></label>
@@ -124,38 +124,17 @@
 
 {% endblock content %}
 
-<!-- {% block script %}
+{% block script %}
 <script>
-    // insart data
-    $(document).on('submit', '#IncludedForm', function (e) {
-        e.preventDefault();
-        output = '';
-        $.ajax({
-            type: "POST",
-            url: '/IncludedCreate',
-            data: {
-                E_id: $('#E_id').val(),
-                Types: 'Included',
-                Lines: $('#Lines1').val(),
-            },
-            success: function (data) {
-                x = data.show
-                for (i = 0; i < x.length; i++) {
-                    output += "<tr><td>" + x[i].RCCode + "</td><td>" + x[i].Quantity + "</td><td>" + x[i].Rate + "</td><td>" + x[i].Labour + "</td><td>" + x[i].Amount + "</td><td>" + x[i].RCDescription + "</td><td><a type='button' class='btn btn-success btn-edit btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-pen fs-5'></i></a><a type='button' class='btn btn-danger btn-del btn-sm ms-2' data-sid=" + x[i].id + "><i class='bi bi-trash fs-5'></i></a></td></tr>";
-                };
-                $('#tbody').html(output);
-                $('#sid').val('');
-                $('#post-form')[0].reset();
-                var $TotalAmount = $('#TotalAmount');
-                $TotalAmount.val(data.TAmount);
-                var tamount = document.getElementById("tamount");
-                tamount.innerText = data.TAmount;
-                var tamount2 = document.getElementById("tamount2");
-                tamount2.innerText = data.TAmount;
-            },
-        })
-
-    })
-
+    ClassicEditor
+        .create( document.querySelector( '#SmallDescription' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
-{% endblock script %} -->
+{% endblock script %}

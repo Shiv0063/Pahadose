@@ -635,6 +635,7 @@
 
 	.tour-detail .text{
 		margin-bottom: var(--margin-bottom-30);
+		font-size:19px;
 	}
 
 	.tour-package{

@@ -1,0 +1,73 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Contact Details</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Contact Details</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-7 col-3 text-md-end">
+                <div class="d-flex justify-content-md-end align-items-center">
+                    <a type="button" href="/Admin" class="btn btn-outline-success mb-2 me-2" >Back</a>
+                </div>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="card" id=''>
+                    <div class="table-responsive p-2">
+                        <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap display nowrap" style="width:100%">
+                            <thead class="text-uppercase small text-muted">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Full Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email Address</th>
+                                    <th>Whatsapp Number</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in dt %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.FullName}}</td>
+                                    <td>{{i.ContactNo}}</td>
+                                    <td>{{i.Email}}</td>
+                                    <td>{{i.WPNo}}</td>
+                                    <td><textarea class="form-control" style="border: none !important;;" readonly>{{i.Msg}}</textarea></td>
+                                 </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</div>
+{% endblock content %}
+
+

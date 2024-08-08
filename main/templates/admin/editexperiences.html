@@ -69,14 +69,14 @@
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Small Description</b></label>
                                 <textarea class="form-control" rows="3"
-                                    name="SmallDescription">{{dt.SmallDescription}}</textarea>
+                                    name="SmallDescription" id="SmallDescription">{{dt.SmallDescription}}</textarea>
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-label"><b>Experiences Category Details :</b></label>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Description</b></label>
-                                <textarea class="form-control" rows="3" name="Description">{{dt.Description}}</textarea>
+                                <textarea class="form-control" rows="3" name="Description" id="Description">{{dt.Description}}</textarea>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Address</b></label>
@@ -138,5 +138,17 @@
     }
     DF = new Date('{{dt.Date}}')
     document.getElementById("Date").value = formatDate(DF);
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#SmallDescription' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 {% endblock script %}

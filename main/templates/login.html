@@ -24,7 +24,7 @@
                                 {% csrf_token %}
                                 <!-- Form Group -->
                                 <div class="form-group">
-                                    <input type="email" name="Email" placeholder="Email">
+                                    <input type="email" name="Email" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                                 </div>
 
                                 <!-- Form Group -->

@@ -44,9 +44,11 @@
                                     <th>Full Name</th>
                                     <th>Date of Birth</th>
                                     <th>Email Address</th>
+                                    <th>Country code</th>
                                     <th>Phone Number</th>
-                                    <th>State</th>
-                                    <th>City</th>
+                                    <th>Whatsapp Number</th>
+                                    <th>Country</th>
+                                    <th>Pincode</th>
                                     <th>Statement of Purpose</th>
                                     {% if EQ.Q1 != '' %}<th>{{EQ.Q1}}</th>{% endif %}
                                     {% if EQ.Q2 != '' %}<th>{{EQ.Q2}}</th>{% endif %}
@@ -68,9 +70,11 @@
                                     <td>{{i.FullName}}</td>
                                     <td>{{i.DOB}}</td>
                                     <td>{{i.Email}}</td>
+                                    <td>{{i.Countrycode}}</td>
                                     <td>{{i.ContactNo}}</td>
-                                    <td>{{i.State}}</td>
-                                    <td>{{i.City}}</td>
+                                    <td>{{i.WPNo}}</td>
+                                    <td>{{i.Country}}</td>
+                                    <td>{{i.Pincode}}</td>
                                     <td>{{i.SOP}}</td>
                                     {% if EQ.Q1 != '' %}<td>{{i.A1}}</td>{% endif %}
                                     {% if EQ.Q2 != '' %}<td>{{i.A2}}</td>{% endif %}

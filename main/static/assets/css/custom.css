@@ -124,7 +124,7 @@
 
 .banner-one_heading{
 	position: relative;
-	font-size: 170px;
+	font-size: 140px;
 	font-weight: 700;
 	line-height: 1em;
 	color: var(--white-color);
@@ -189,7 +189,7 @@
 	position: relative;
 	max-width: 1090px;
 	margin: 0 auto;
-	padding: 40px 45px 30px;
+	padding: 25px 25px 30px !important; 
 	border-radius: 25px;
 	margin-top: var(--margin-top-40);
 	background-color: var(--white-color);
@@ -4011,7 +4011,7 @@
 
 .page-banner_title{
 	position: relative;
-	font-size: 130px;
+	font-size: 70px;
 	font-weight: 700;
 	line-height: 1em;
 	color: var(--white-color);

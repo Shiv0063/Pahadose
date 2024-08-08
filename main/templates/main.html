@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-	<link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
-	<link rel="icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+	<link rel="shortcut icon" href="{% static 'assets/images/logoc.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'assets/images/logoc.png' %}" type="image/x-icon">
 
 	<title>Pahado Se</title>
 
@@ -83,6 +83,11 @@
 								<li class="menu-item"><a href="/Memories">Memories</a></li>
 								<li class="menu-item"><a href="/Blog">Blog</a></li>
 								<li class="menu-item"><a href="/Contact">Let’s Connect</a></li>
+								{% if request.user.is_authenticated %}
+								<li class="menu-item d-sm-block d-sm-none d-lg-none"><a href="/Logout">Logout</a></li>
+								{% else %}
+								<li class="menu-item d-sm-block d-sm-none d-lg-none"><a href="/Login">Sign In</a></li>
+								{% endif %}
 							</ul>
 						</div>
 
@@ -201,7 +206,9 @@
 
 	<!-- Scroll To Top -->
 	<div class="scroll-to-top"><span class="fas fa-arrow-up fa-fw"></span></div>
+	{% block script %}
 
+	{% endblock script %}
 	<script src="{% static 'assets/js/jquery.js' %}"></script>
 	<script src="{% static 'assets/js/popper.min.js' %}"></script>
 	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
@@ -223,6 +230,7 @@
 	<script src="{% static 'assets/js/select2.min.js' %}"></script>
 	<script src="{% static 'assets/js/flatpickr.min.js' %}"></script>
 	<script src="{% static 'assets/js/price-range.js' %}"></script>
+	<script src="{% static 'assets/js/niceCountryInput.js' %}"></script>
 
 	<script src="{% static 'assets/js/script.js' %}"></script>
 

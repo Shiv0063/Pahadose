@@ -2,194 +2,314 @@
 {% load static %}
 {% block content %}
 
-	<!-- Page Banner -->
-	<section class="page-banner" style="background-image: url(/static/assets/images/New/4.jpeg)">
-		<div class="auto-container">
-			<ul class="page-breadbrumbs">
-				<li><a href="#">Home</a></li>
-				<li>Experiences</li>
-			</ul>
-			<h1 class="page-banner_title">{{dt.Name}}</h1>
-		</div>
-	</section>
-	<!-- End Page Banner -->
+<!-- Page Banner -->
+<section class="page-banner" style="background-image: url(/static/assets/images/New/4.jpeg)">
+    <div class="auto-container">
+        <ul class="page-breadbrumbs">
+            <li><a href="#">Home</a></li>
+            <li>Experiences</li>
+        </ul>
+        <h1 class="page-banner_title">{{dt.Name}}</h1>
+    </div>
+</section>
+<!-- End Page Banner -->
 
-	<!-- Gallery Five -->
-	<section class="">
-		<div class="auto-container">
+<!-- Gallery Five -->
+<section class="">
+    <div class="auto-container">
 
-			<div class="row clearfix mt-4">
+        <div class="row clearfix mt-4">
 
-				<!-- Contact Column -->
-				<div class="contact-column col-12">
-                    <div class="title-box mb-4">
-                        <h4><b>{{dt.Name}}</b></h4>
-                    </div>
+            <!-- Contact Column -->
+            <div class="contact-column col-12">
+                <div class="title-box mb-4">
+                    <h4><b>{{dt.Name}}</b></h4>
+                </div>
 
-					<!-- Contact Form -->
-					<div class="booking-form mb-5">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Full Name</label>
-                                        <input type="text" name="FullName" class="" placeholder="Full Name" required="">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Date of Birth</label>
-                                        <input type="date" name="DOB" placeholder="Date of Birth" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Email Address</label>
-                                        <input type="email" name="email" placeholder="Email Address" required="">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Phone Number</label>
-                                        <input type="tel" name="phone" placeholder="(+00) 123 456 7890" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">State</label>
-                                        <input type="text" name="State" placeholder="State" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">City</label>
-                                        <input type="text" name="City" placeholder="City" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Statement of Purpose </label><p>( Please share with us your purpose of participating in this retreat. Try to be as descriptive and expressive as posisble.)</p>
-                                        <textarea name="SOP" placeholder="Statement of Purpose "></textarea>
-                                    </div>
-                                </div>
-                                {% if fm.Q1 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q1}}</label>
-                                        <textarea name="A1" placeholder="{{fm.Q1}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q2 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q2}}</label>
-                                        <textarea name="A2" placeholder="{{fm.Q2}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q3 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q3}}</label>
-                                        <textarea name="A3" placeholder="{{fm.Q3}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q4 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q4}}</label>
-                                        <textarea name="A4" placeholder="{{fm.Q4}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q5 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q5}}</label>
-                                        <textarea name="A5" placeholder="{{fm.Q5}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q6 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q6}}</label>
-                                        <textarea name="A6" placeholder="{{fm.Q6}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q7 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q7}}</label>
-                                        <textarea name="A7" placeholder="{{fm.Q7}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-
-                                {% if fm.Q8 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q8}}</label>
-                                        <textarea name="A8" placeholder="{{fm.Q8}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q9 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q9}}</label>
-                                        <textarea name="A9" placeholder="{{fm.Q9}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if fm.Q10 != '' %}
-                                <div class="col-lg-12">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">{{fm.Q10}}</label>
-                                        <textarea name="A10" placeholder="{{fm.Q10}}" required></textarea>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="col-lg-12">
-                                    <button type="submit" class="btn-style-two theme-btn">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Submit My Application</span>
-                                            <span class="text-two">Submit My Application</span>
-                                        </span>
-                                    </button>
+                <!-- Contact Form -->
+                <div class="booking-form mb-5">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" name="FullName" class="" placeholder="Full Name" required="">
                                 </div>
                             </div>
-                        </form>
-                    </div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Gallery Five -->
 
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="date" name="DOB" placeholder="Date of Birth" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" name="email" placeholder="Email Address" required
+                                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-md-5 m-0 mt-2 mt-md-0"><select id="country-code "
+                                                    class="country-code-select seleser" name="Countrycode">
+                                                    <option selected>Selecte Country</option>
+                                                    {% include "code.html" %}
+                                                    <!-- Add more country codes here -->
+                                                </select></div>
+                                            <div class="col-md-7 m-0 mt-2 mt-md-0"><input type="tel" name="phone"
+                                                    placeholder="123 456 7890" class="" required="123 456 7890"
+                                                    maxlength="12"></div>
+                                            <div class="col-1 m-0 mt-3">
+                                                <input type="checkbox" name="WP" class="form-check ms-3"
+                                                    id="myCheckbox">
+                                            </div>
+                                            <div class="col-9 m-0 mt-3">
+                                                <label class="form-label">Whatsapp Number</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6" style="display: none;" id="myDiv">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Whatsapp Number</label>
+                                    <input type="tel" name="WPNo" placeholder="123 456 7890" maxlength="12">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Country</label>
+                                    <select class="country-selector country-code-select seleser" name="Country">
+                                        <option selected>Selecte Country</option>
+                                        {% include "country.html" %}
+                                        <!-- Add more countries here -->
+                                    </select>
+                                    <!-- <input type="text" name="Country" placeholder="Country" required> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Pincode</label>
+                                    <input type="text" name="Pincode" placeholder="Pincode" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">Statement of Purpose </label>
+                                    <p>( Please share with us your purpose of participating in this retreat. Try to be
+                                        as descriptive and expressive as posisble.)</p>
+                                    <textarea name="SOP" class="custom-scrollbar" placeholder="Statement of Purpose"
+                                        style="overflow-y: scroll;"></textarea>
+                                </div>
+                            </div>
+                            {% if fm.Q1 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q1}}</label>
+                                    <textarea name="A1" class="custom-scrollbar" placeholder="{{fm.Q1}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q2 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q2}}</label>
+                                    <textarea name="A2" class="custom-scrollbar" placeholder="{{fm.Q2}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q3 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q3}}</label>
+                                    <textarea name="A3" class="custom-scrollbar" placeholder="{{fm.Q3}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q4 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q4}}</label>
+                                    <textarea name="A4" class="custom-scrollbar" placeholder="{{fm.Q4}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q5 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q5}}</label>
+                                    <textarea name="A5" class="custom-scrollbar" placeholder="{{fm.Q5}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q6 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q6}}</label>
+                                    <textarea name="A6" class="custom-scrollbar" placeholder="{{fm.Q6}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q7 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q7}}</label>
+                                    <textarea name="A7" class="custom-scrollbar" placeholder="{{fm.Q7}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if fm.Q8 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q8}}</label>
+                                    <textarea name="A8" class="custom-scrollbar" placeholder="{{fm.Q8}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q9 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q9}}</label>
+                                    <textarea name="A9" class="custom-scrollbar" placeholder="{{fm.Q9}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if fm.Q10 != '' %}
+                            <div class="col-lg-12">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="form-label">{{fm.Q10}}</label>
+                                    <textarea name="A10" class="custom-scrollbar" placeholder="{{fm.Q10}}"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn-style-two theme-btn">
+                                    <span class="btn-wrap">
+                                        <span class="text-one">Submit My Application</span>
+                                        <span class="text-two">Submit My Application</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Gallery Five -->
+<style>
+    .country-code-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border-right: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .country-code-select::-ms-expand {
+        display: none;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background-color: #ccc;
+        border-radius: 7px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #DEC5A0;
+        border-radius: 7px;
+    }
+
+    .seleser::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .seleser::-webkit-scrollbar-track {
+        background-color: #ccc;
+        border-radius: 7px;
+    }
+
+    .seleser::-webkit-scrollbar-thumb {
+        background-color: #DEC5A0;
+        border-radius: 7px;
+    }
+
+    .country-selector {
+        width: 200px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        background-image: url('flag-icon.png');
+        /* Replace with your own flag icon */
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+    }
+
+    .country-selector option {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .country-selector option:last-child {
+        border-bottom: none;
+    }
+</style>
 {% endblock content %}
+
+{% block script %}
+
+<script>
+    const checkbox = document.getElementById('myCheckbox');
+    const div = document.getElementById('myDiv');
+    checkbox.addEventListener('change', () => {
+        div.style.display = checkbox.checked ? 'block' : 'none';
+    });
+</script>
+{% endblock script %}

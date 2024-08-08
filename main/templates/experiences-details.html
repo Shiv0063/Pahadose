@@ -17,14 +17,17 @@
 
 <!-- Gallery Six  -->
 <section class="gallery-six">
-	<div class="outer-container">
-		<div class="gallery-carousel-two owl-carousel owl-theme">
+	<div class="outer-container ">
+		<div class="gallery-carousel-two owl-carousel owl-theme p-2">
 			{% for i in EIM %}
 			<!-- Image -->
 			<div class="image">
 				<a class="lightbox-image" href="/{{i.Image}}"><img src="/{{i.Image}}" alt=""></a>
 			</div>
 			{% endfor %}
+			<div class="image">
+				<a class="lightbox-image" href="{% static 'assets/images/New/defaultImgFinal.png' %}"><img src="{% static 'assets/images/New/defaultImgFinal.png' %}" alt=""></a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -36,7 +39,7 @@
 		<div class="row clearfix">
 			<!-- Column -->
 			<div class="column col-lg-6 col-md-12 col-sm-12">
-				<div class="text">{{dt.Description}}
+				<div class="text">{{dt.Description|safe }}
 				</div>
 			</div>
 			<!-- Column -->
@@ -48,7 +51,7 @@
 							<ul class="tour-package_list">
 								<li><span class="icon fas fa-map-marker-alt fa-fw"></span>Address :
 									<b>{{dt.Address}}</b></li>
-								<li><span class="icon fas fa-dollar-sign fa-fw"></span>Price : <b>{{dt.Price}}</b></li>
+								<li><span class="icon fas fa-rupee-sign fa-fw"></span>Price : <b>{{dt.Price}}</b></li>
 								<li><span class="icon fas fa-clock fa-fw"></span>Days : <b>{{dt.Days}}</b></li>
 								<li><span class="icon fas fa-calendar fa-fw"></span>Date : <b>{{dt.Date}}</b> </li>
 							</ul>
@@ -183,7 +186,7 @@
 			<div class="title-box">
 				<div class="d-flex align-items-center justify-content-between flex-wrap">
 					<h4>Experiences</h4>
-					<a class="package-one_more" href="experiences.html">See More Activities</a>
+					<a class="package-one_more" href="/Experiences">See More Activities</a>
 				</div>
 			</div>
 

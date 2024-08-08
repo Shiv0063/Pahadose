@@ -113,6 +113,7 @@
   --font-16: 16px;
   --font-17: 17px;
   --font-18: 18px;
+  --font-19: 19px;
   --font-20: 20px;
   --font-21: 21px;
   --font-22: 22px;
@@ -513,6 +514,10 @@ p{
 h1{
 	line-height:80px;
 	font-size:var(--font-70);
+}
+
+.h1{
+    font-size:var(--font-70);
 }
 
 h2{
@@ -1205,7 +1210,7 @@ img{
     position: relative;
     line-height: 28px;
     color: var(--color-two);
-    font-size:var(--font-16);
+    font-size:var(--font-19);
     margin-top:var(--margin-top-25);
 }
 

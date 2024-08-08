@@ -3,7 +3,7 @@
 {% block content %}
 
 	<!-- Page Banner -->
-	<section class="page-banner" style="background-image: url(static/assets/images/New/4.jpeg)">
+	<section class="page-banner" style="background-image: url(static/assets/images/New/contact.jpeg)">
 		<div class="auto-container">
 			<ul class="page-breadbrumbs">
 				<li><a href="#">Home</a></li>
@@ -46,37 +46,28 @@
 			<div class="row clearfix">
 
 				<!-- Contact Column -->
-				<div class="contact-column col-12">
-                    <div class="title-box">
-                        <h4><b>Send Us Mail</b></h4>
-                        <p>Your email address will not be published. Required fields are marked *</p>
+				<div class="contact-column col-12 ">
+                    <div class="title-box mb-5  ">
+                        <h4><b>Send Us Mail</b></h4> 
                     </div>
 
 					<!-- Contact Form -->
 					<div class="booking-form mb-5">
-                        <form method="post" action="contact.html">
+                        <form method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6">
                                     <!-- Form Group -->
                                     <div class="form-group">
-                                        <label class="form-label">First Name</label>
-                                        <input type="text" name="f-name" class="" placeholder="First Name" required="">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" name="FullName" class="" placeholder="Full Name" required>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6">
-                                    <!-- Form Group -->
-                                    <div class="form-group">
-                                        <label class="form-label">Last Name</label>
-                                        <input type="text" name="l-name" placeholder="Last Name">
-                                    </div>
-                                </div>
-
                                 <div class="col-lg-6">
                                     <!-- Form Group -->
                                     <div class="form-group">
                                         <label class="form-label">Email Address</label>
-                                        <input type="email" name="email" placeholder="Email Address" required="">
+                                        <input type="email" name="Email" placeholder="Email Address" required>
                                     </div>
                                 </div>
 
@@ -84,15 +75,21 @@
                                     <!-- Form Group -->
                                     <div class="form-group">
                                         <label class="form-label">Phone Number</label>
-                                        <input type="number" name="phone" placeholder="Phone Number">
+                                        <input type="tel" name="ContactNo" placeholder="Phone Number" inputmode="numeric" required>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-6">
+                                    <!-- Form Group -->
+                                    <div class="form-group">
+                                        <label class="form-label">Whatsapp Number</label>
+                                        <input type="tel" name="WPNo" placeholder="Whatsapp Number">
+                                    </div>
+                                </div>
                                 <div class="col-lg-12">
                                     <!-- Form Group -->
                                     <div class="form-group">
-                                        <label class="form-label">Enter Text</label>
-                                        <textarea name="text" placeholder="Enter Text"></textarea>
+                                        <label class="form-label">Message</label>
+                                        <textarea name="Msg" rows="5" placeholder="Message" required></textarea>
                                     </div>
                                 </div>
 

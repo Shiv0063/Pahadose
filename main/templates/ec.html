@@ -9,7 +9,7 @@
 			<li><a href="#">Home</a></li>
 			<li>Experiences</li>
 		</ul>
-		<h1 class="page-banner_title">{{name}}</h1>
+		<h1 class="page-banner_title" style="font-size: 70px !important;">{{name}}</h1>
 	</div>
 </section>
 <!-- End Page Banner -->
@@ -29,17 +29,17 @@
 				<!-- Itinerary Block One -->
 				<div class="col-12">
 					<div class="row">
-						<div class="col-md-4 mb-3 " style="border-radius: 10px; height: 280px; background: url(/{{i.Image}}); background-repeat: no-repeat; background-size: cover;">
-							<div class="text-center" style="margin-top: 120px;">
+						<div class="col-md-4 mb-3" style="border-radius: 10px; height: 280px; background:  url('/{{i.Image}}'); background-repeat: no-repeat; background-size: cover; position: relative;">
+							<div class="text-center" style="width: 310px; position: absolute;top: 50%;left: 50%; transform: translate(-50%,-50%);">
 								<h2>
-									<a href="Experiences/{{i.Category}}" class="" style=" font-size: 60px; font-weight: 600; color: white !important;">{{i.Name}}</a>
+									<a {% if i.View == 'KnowMore' %}href="{{name}}/{{ i.Name }}"{% endif %} class="" style=" font-size: 35px; font-weight: 600; color: white !important;">{{i.Name}}</a>
 								</h2>
 							</div>
 							
 						</div>
 						<div class="col-md-8 d-flex justify-content-center">
-							<div class="align-content-center">
-								<p class="">{{i.SmallDescription}}</p>
+							<div class="align-content-center" style="width: 650px;">
+								<p class="">{{i.SmallDescription|safe }}</p>
 								<center>
 									<a {% if i.View == 'KnowMore' %}href="{{name}}/{{ i.Name }}"{% endif %} class="btn-style-two theme-btn m-auto">
 									<span class="btn-wrap">

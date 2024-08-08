@@ -1,0 +1,168 @@
+{% extends 'admin/main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Experience Form Details</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Experience Form Details</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-7 col-3 text-md-end">
+                <div class="d-flex justify-content-md-end align-items-center">
+                    <a type="button" href="/Admin" class="btn btn-outline-success mb-2 me-2">Back</a>
+                </div>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">All</button>
+                    </li>
+                    {% for i in EQ %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-{{i.E_id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-{{i.E_id}}" type="button" role="tab" aria-controls="pills-{{i.E_id}}"
+                            aria-selected="true">{{i.Name}}</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content" id="pills-tabContent">    
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">
+                        <div class="card" id=''>
+                            <div class="table-responsive p-2">
+                                <table id="exampletab"
+                                    class="table mt-0 table-striped table-card table-nowrap display nowrap"
+                                    style="width:100%">
+                                    <thead class="text-uppercase small text-muted">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Experience</th>
+                                            <th>Full Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Email Address</th>
+                                            <th>Country code</th>
+                                            <th>Phone Number</th>
+                                            <th>Whatsapp Number</th>
+                                            <th>Country</th>
+                                            <th>Pincode</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in EA %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{i.Name}}</td>
+                                            <td>{{i.FullName}}</td>
+                                            <td>{{i.DOB}}</td>
+                                            <td>{{i.Email}}</td>
+                                            <td>{{i.Countrycode}}</td>
+                                            <td>{{i.ContactNo}}</td>
+                                            <td>{{i.WPNo}}</td>
+                                            <td>{{i.Country}}</td>
+                                            <td>{{i.Pincode}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% for i in EQ %}
+                    <div class="tab-pane fade" id="pills-{{i.E_id}}" role="tabpanel" aria-labelledby="pills-{{i.E_id}}-tab"
+                        tabindex="0">
+                        <div class="card" id=''>
+                            <div class="table-responsive p-2">
+                                <table id="exampletab1" class="table mt-0 table-striped table-card table-nowrap display nowrap" style="width:100%">
+                                    <thead class="text-uppercase small text-muted">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Full Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Email Address</th>
+                                            <th>Country code</th>
+                                            <th>Phone Number</th>
+                                            <th>Whatsapp Number</th>
+                                            <th>Country</th>
+                                            <th>Pincode</th>
+                                            <th>Statement of Purpose</th>
+                                            {% for j in EQ %}
+                                            {% if j.E_id == i.E_id %}
+                                            {% if i.Q1 != '' %}<th>{{i.Q1}}</th>{% endif %}
+                                            {% if i.Q2 != '' %}<th>{{i.Q2}}</th>{% endif %}
+                                            {% if i.Q3 != '' %}<th>{{i.Q3}}</th>{% endif %}
+                                            {% if i.Q4 != '' %}<th>{{i.Q4}}</th>{% endif %}
+                                            {% if i.Q5 != '' %}<th>{{i.Q5}}</th>{% endif %}
+                                            {% if i.Q6 != '' %}<th>{{i.Q6}}</th>{% endif %}
+                                            {% if i.Q7 != '' %}<th>{{i.Q7}}</th>{% endif %}
+                                            {% if i.Q8 != '' %}<th>{{i.Q8}}</th>{% endif %}
+                                            {% if i.Q9 != '' %}<th>{{i.Q9}}</th>{% endif %}
+                                            {% if i.Q10 != '' %}<th>{{i.Q10}}</th>{% endif %}
+                                            {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for q in EA %}
+                                        {% if q.E_id == i.E_id %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{q.FullName}}</td>
+                                            <td>{{q.DOB}}</td>
+                                            <td>{{q.Email}}</td>
+                                            <td>{{q.Countrycode}}</td>
+                                            <td>{{q.ContactNo}}</td>
+                                            <td>{{q.WPNo}}</td>
+                                            <td>{{q.Country}}</td>
+                                            <td>{{q.Pincode}}</td>
+                                            <td>{{q.SOP}}</td>
+                                            {% if i.Q1 != '' %}<td>{{q.A1}}</td>{% endif %}
+                                            {% if i.Q2 != '' %}<td>{{q.A2}}</td>{% endif %}
+                                            {% if i.Q3 != '' %}<td>{{q.A3}}</td>{% endif %}
+                                            {% if i.Q4 != '' %}<td>{{q.A4}}</td>{% endif %}
+                                            {% if i.Q5 != '' %}<td>{{q.A5}}</td>{% endif %}
+                                            {% if i.Q6 != '' %}<td>{{q.A6}}</td>{% endif %}
+                                            {% if i.Q7 != '' %}<td>{{q.A7}}</td>{% endif %}
+                                            {% if i.Q8 != '' %}<td>{{q.A8}}</td>{% endif %}
+                                            {% if i.Q9 != '' %}<td>{{q.A9}}</td>{% endif %}
+                                            {% if i.Q10 != '' %}<td>{{q.A10}}</td>{% endif %}
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

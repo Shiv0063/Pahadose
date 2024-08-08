@@ -7,8 +7,8 @@
 	<!-- Responsive -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
-	<link rel="icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+	<link rel="shortcut icon" href="{% static 'assets/images/logoc.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'assets/images/logoc.png' %}" type="image/x-icon">
 	<title>Pahado Se</title>
 	<!-- Stylesheet  -->
 	<link href="{% static 'assets/css/style-1.css' %}" rel="stylesheet">
@@ -80,6 +80,11 @@
 								<li class="menu-item"><a href="/Memories">Memories</a></li>
 								<li class="menu-item"><a href="/Blog">Blog</a></li>
 								<li class="menu-item"><a href="/Contact">Let’s Connect</a></li>
+								{% if request.user.is_authenticated %}
+								<li class="menu-item d-sm-block d-sm-none d-lg-none"><a href="/Logout">Logout</a></li>
+								{% else %}
+								<li class="menu-item d-sm-block d-sm-none d-lg-none"><a href="/Login">Sign In</a></li>
+								{% endif %}
 							</ul>
 						</div>
 
@@ -145,7 +150,7 @@
 
 		<!-- Banner One / Style Three -->
 		<section class="banner-one style-three">
-			<div class="banner-one_image-layer" style="background-image: url(static/assets/images/New/MG_662.jpg)"></div>
+			<div class="banner-one_image-layer" style="background-image: url(static/assets/images/New/mainp.jpeg)"></div>
 			<div class="auto-container">
 				<!-- Content Column -->
 				<div class="banner-one_content">
@@ -158,43 +163,55 @@
 						<!-- Form Box -->
 						<div class="banner-one_form-box">
 							<!-- Travel Form -->
-							<div class="travel-form">
-								<form method="post" action="#">
-									<div class="row clearfix">
-										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
-											<div class="form-group_inner">
-												
-												<label>Destination</label>
-												<input type="text" name="" id="" placeholder="Select Destination">
+							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+								<li class="nav-item" role="presentation">
+								  <button class="nav-link active " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">EXPERIENCES</button>
+								</li>
+								<li class="nav-item" role="presentation">
+								  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Stays</button>
+								</li>
+							  </ul>
+							  <div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0"><div class="travel-form">
+									<form method="post" id="formAdd">
+										{% csrf_token %}
+										<div class="row clearfix">
+											<div class="col-md-6 col-sm-6 form-group">
+												<div class="form-group_inner">
+													<label>Experiences</label>
+													<select class="country-selector country-code-select seleser" name="Experiences"  required>
+														<option selected>Selecte Experiences</option>
+														{% for i in EQ %}
+														<option value="{{i.Category}}">{{i.Category}}</option>
+														{% endfor %}
+													</select>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6 form-group">
+												<div class="form-group_inner">
+													<label>Experiences List</label>
+													<select class="country-selector country-code-select seleser" name="ExperiencesList" required>
+														<option selected class="after">Selecte Experiences List</option>
+														{% for i in EQ %}
+														<option value="{{i.Category}}">{{i.Category}}</option>
+														{% endfor %}
+													</select>
+												</div>
 											</div>
 										</div>
-
-										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
-											<div class="form-group_inner">
-												<label>Date</label>
-												<input class="flatpickr" type="text" name="calendar"
-													placeholder="Select Date">
-											</div>
+										<!-- Button Box -->
+										<div class="button-box">
+											<button class="btn-style-two theme-btn" formaction="ExperiencesSearch" type="submit">
+												<span class="btn-wrap">
+													<span class="text-one">Search</span>
+													<span class="text-two">Search</span>
+												</span>
+											</button>
 										</div>
-
-										<div class="col-lg-4 col-md-6 col-sm-6 form-group">
-											<div class="form-group_inner">
-												<label>Price</label>
-												<input type="text" name="text" placeholder="Price" value="" required="">
-											</div>
-										</div>
-									</div>
-									<!-- Button Box -->
-									<div class="button-box">
-										<button class="btn-style-two theme-btn">
-											<span class="btn-wrap">
-												<span class="text-one">Search</span>
-												<span class="text-two">Search</span>
-											</span>
-										</button>
-									</div>
-								</form>
-							</div>
+									</form>
+								</div></div>
+								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"> Comingsoon </div>
+							  </div>
 							<!-- End Travel Form -->
 						</div>
 
@@ -213,15 +230,15 @@
 					<div class="about-one_content-column col-md-12 col-sm-12">
 						<div class="about-one_content">
 							<div class="sec-title_three">
-								<div class="sec-title_three-title">Why with Us</div>
+								<div class="sec-title_three-title">Why with</div>
 								<h1 class="sec-title_three-heading">Pahado Se</h1>
-								<div class="sec-title_three-text">
+								<div class="sec-title_three-text" style="font-size: 19px !important;">
 									Welcome to <b>Pahado Se</b>, where the Himalayan spirit comes alive. As a lifestyle
 									specialist company born in the heart of the Indian Himalayas, we’re on a mission to
 									spread the essence of this majestic region globally. Our core values— <b>progress,
 										prosperity, and perseverance</b> —drive everything we do.
 								</div>
-								<div class="sec-title_three-text">
+								<div class="sec-title_three-text" style="font-size: 19px !important;"> 
 									We believe in preserving the Sustainable Himalayan way of life. Our goal is to keep
 									the <b>“Himalayan Spirit”</b> alive among nature enthusiasts, Himalaya lovers, and
 									all who seek authenticity. <a href="about.html" class="package-one_more">Read
@@ -253,7 +270,7 @@
 							<div class="row p-5 mb-2 mt-2">
 								<div class="col-6 align-content-center">
 									<h5><b>{{i.Name}}</b></h5>
-									<p class="mt-2">{{i.SmallDescription}} <br><a href="/Experiences/{{i.Category}}/{{i.Name}}" class="package-one_more">{% if i.View == 'KnowMore' %}Know More{% else %}Coming Soon{% endif %}</a> </p>
+									<p class="mt-2" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;overflow: hidden;">{{i.SmallDescription}} <br></p><a href="/Experiences/{{i.Category}}/{{i.Name}}" class="package-one_more">{% if i.View == 'KnowMore' %}Know More{% else %}Coming Soon{% endif %}</a>
 								</div>
 								<div class="col-6">
 									<img src="/{{i.Image}}" width="227px" style="height: 170px; border-radius: 10px;" alt="">
@@ -300,20 +317,21 @@
 					<div class="title-box">
 						<div class="d-flex align-items-center justify-content-between flex-wrap">
 							<h4>Experiences</h4>
-							<a class="package-one_more" href="hotel-details.html">See More Activities</a>
+							<a class="package-one_more" href="/Experiences">See More Activities</a>
 						</div>
 					</div>
 
 					<div class="three-item-carousel owl-carousel owl-theme">
 						<!-- Itinerary Block One -->
 						 {% for i in dt2 %}
-						<div class="itinerary-block_one">
+						
+						<div class="itinerary-block_one col-md-4 mb-3">
 							<div class="itinerary-block_one-inner">
 								<div class="itinerary-block_one-image">
-									<img src="/{{i.Image}}" alt="" class="img-fluid" style="height: 302px;">
+									<img src="{{i.Image}}" alt="" class="img-fluid" style="height: 300px;">
 									<div class="itinerary-block_one-content">
-										<h5 class="itinerary-block_one-heading"><a href="/Experiences/{{i.Category}}/{{i.Name}}">{{i.Name}}</a></h5>
-										<div class="itinerary-block_one-text">{{i.SmallDescription}}</div>
+										<h1 class="itinerary-block_one-heading" style="font-size: 35px !important;line-height: 1 !important;"><a href="/Experiences/{{i.Category}}/{{i.Name}}">{{i.Name}}</a></h1>
+										<div class="itinerary-block_one-text"  style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;overflow: hidden;">{{i.SmallDescription}}</div>
 										<a class="itinerary-block_one-arrow flaticon-next-2"
 											href="/Experiences/{{i.Category}}/{{i.Name}}"></a>
 									</div>
@@ -853,12 +871,84 @@
 				</div>
 			</div>
 		</footer>
-
 	</div>
-	<!-- End PageWrapper -->
-
-	<!-- Scroll To Top -->
 	<div class="scroll-to-top"><span class="fas fa-arrow-up fa-fw"></span></div>
+	<!-- End PageWrapper -->
+	<style>
+		.country-code-select {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			border-right: none;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+	
+		.seleser::-webkit-scrollbar {
+			width: 10px;
+		}
+	
+		.seleser::-webkit-scrollbar-track {
+			background-color: #ccc;
+			border-radius: 7px;
+		}
+	
+		.seleser::-webkit-scrollbar-thumb {
+			background-color: #DEC5A0;
+			border-radius: 7px;
+		}
+	
+		.country-selector {
+			width: 200px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			font-weight: bold;
+			color: #333;
+			background-image: url('flag-icon.png');
+			/* Replace with your own flag icon */
+			background-position: right 10px center;
+			background-repeat: no-repeat;
+		}
+	
+		.country-selector option {
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+	
+		.country-selector option:last-child {
+			border-bottom: none;
+		}
+	</style>
+	<!-- Scroll To Top -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>
+		$("#formAdd select[name='Experiences']").on('change', function () {
+        var $this = $(this);
+        if ($this.val() != '') {
+            $("#formAdd select[name='ExperiencesList']").find('.after').nextAll().remove();
+            $.ajax({
+                url: '/ExperiencesAPI',
+                type: 'POST',
+                data: { value: $this.val() },
+                success: function (resp) {
+                    let options = '';
+                    resp.Ex.forEach(i => {
+						options += `<option value="${i.Name}">${i.Name}</option>`;
+                    });
+                    $("#formAdd select[name='ExperiencesList']").find('.after').after(options);
+                },
+                error: function (resp) {
+                    console.log('Something went wrong');
+                }
+            });
+        } else {
+            $("#formAdd ").find('.after').nextAll().remove();
+        }
+    });
+	</script>
+
 
 	<script src="{% static 'assets/js/jquery.js' %}"></script>
 	<script src="{% static 'assets/js/popper.min.js' %}"></script>

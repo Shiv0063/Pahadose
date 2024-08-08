@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.dataTables.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
 
   <style>
     .btn-default {
@@ -126,9 +127,26 @@
                     <li class="sidebar-item"><a class="sidebar-link" data-tabname="Experience" href="/AExperience">Experience</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" data-tabname="ExperienceForm" href="/ExperienceForm">Experiences Form</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" data-tabname="Memories" href="/AMemories">Memories</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Memories" href="/Memories">Memories</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Stays" href="/AStays">Stays</a></li>
                   </ul>
                 </li>
+                <li class="nav-item">
+                  <a href="/ExperienceFormlist" class="nav-link d-flex align-items-center text-truncate" data-tabname="ExperienceFormlist">
+                    <span class="sidebar-icon">
+                      <i class="bi bi-folder-minus fs-5"></i>
+                    </span>
+                    <span class="sidebar-text">Experience Form</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ContactList" class="nav-link d-flex align-items-center text-truncate" data-tabname="ContactList">
+                    <span class="sidebar-icon">
+                      <i class="bi bi-list fs-5"></i>
+                    </span>
+                    <span class="sidebar-text">Contact</span>
+                  </a>
+                </li>
+                
                 <!-- <li class="nav-item">
                   <a href="#Entery" data-bs-toggle="collapse" data-tabname="Entery" class="nav-link d-flex align-items-center text-truncate"
                     aria-expanded="false">
@@ -274,7 +292,7 @@
 
                   <!--Avatar with status-->
                   <div class="avatar-status status-online me-1 avatar sm">
-                    <img src="{% static 'assets2/media/avatars/01.jpg' %}" class="rounded-circle img-fluid" alt="">
+                    <img src="{% static 'assets/images/logoc.png' %}" class="rounded-circle img-fluid" alt="">
                   </div>
                 </div>
               </a>
@@ -343,12 +361,15 @@
   <script>
 
     let PathNameObj = {
-      "": 'Dashboard',
+      "Admin": 'Dashboard',
       "ExperienceCategory": 'Master',
       "AExperience": 'Master',
       "AddCategory": 'Master',
       "ExperienceForm": 'Master',
-      "Memories": 'Master',
+      "AMemories": 'Master',
+      "AStays": 'Master',
+      "ExperienceFormlist": 'ExperienceFormlist',
+      "ContactList": 'ContactList',
       "Profile": 'Profile',
 
     }
@@ -362,10 +383,14 @@
     document.querySelector(`[data-tabname='${patName}']`)?.classList.add("active")
 
     let PathNameObj2 = {
+      "Admin": 'Dash',
       "ExperienceCategory": 'ExperienceCategory',
       "AExperience": 'Experience',
       "AddCategory": 'ExperienceCategory',
-
+      "AMemories": 'Memories',
+      "AStays": 'Stays',
+      "ExperienceFormlist": 'mmm',
+      "ContactList": 'mmm',
     }
 
     let patName2;

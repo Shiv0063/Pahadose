@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Experience,ExperienceCategory,ExperienceImages,ExperienceIncluded,ExperienceFormsQ,ExperienceFormsA,MemoriesModel,UserDetails
+from .models import Experience,ExperienceCategory,ExperienceImages,ExperienceIncluded,ExperienceFormsQ,ExperienceFormsA,MemoriesModel,UserDetails,ContactModel
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User,Group
 from django.http import HttpResponse,JsonResponse
@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required,user_passes_test
 import os
+from django.views.decorators.csrf import csrf_exempt
 from urllib.parse import urlparse, parse_qs
 # Create your views here.
 # Pahado Se Front-Side
@@ -23,10 +24,15 @@ def Login_in(request):
         if user is not None:
             login(request,user) 
             parsed_url = urlparse(request.META.get('HTTP_REFERER'))
-            next_url = parse_qs(parsed_url.query)['next'][0]
-            if next_url:
+            if 'next' in parsed_url:
+                next_url = parse_qs(parsed_url.query)['next'][0]
+            else:
+                next_url=''
+            if next_url != '':
                 return redirect(next_url)
-            return redirect('/')
+            else:
+                return redirect('/')
+        return redirect('/')
     return render(request,'login.html')
 
 def Logout(request):
@@ -59,8 +65,23 @@ def SignUp(request):
 def home(request):
     dt=Experience.objects.all()[:2]
     dt2=Experience.objects.all()
-    data= {'dt':dt,'dt2':dt2}
+    EQ=ExperienceCategory.objects.all()
+    data= {'dt':dt,'dt2':dt2,'EQ':EQ}
     return render(request,'index.html',data)
+
+@csrf_exempt
+def ExperiencesAPI(request):
+    PN = request.POST.get('value')
+    Cy = ExperienceCategory.objects.get(Category=PN)
+    Ex = Experience.objects.filter(EC_id=Cy.id).values()
+    Ex = list(Ex)
+    return JsonResponse({'Ex':Ex})
+
+def ExperiencesSearch(request):
+    if request.method == 'POST':
+        Experiences = request.POST.get('Experiences')
+        ExperiencesList = request.POST.get('ExperiencesList')
+        return redirect(f'/Experiences/{Experiences}/{ExperiencesList}')
 
 def Experiences(request):
     dt=ExperienceCategory.objects.all()
@@ -94,9 +115,11 @@ def ExperiencesForm(request,name):
         FullName = request.POST.get('FullName')
         DOB = request.POST.get('DOB')
         Email = request.POST.get('email')
-        ContactNo = request.POST.get('phone')
-        State = request.POST.get('State')
-        City = request.POST.get('City')
+        Countrycode = request.POST.get('Countrycode')
+        ContactNo = request.POST.get('phone')        
+        WPNo = request.POST.get('WPNo')
+        Country = request.POST.get('Country')
+        Pincode = request.POST.get('Pincode')
         SOP = request.POST.get('SOP')
         A1 = request.POST.get('A1') or ''
         A2 = request.POST.get('A2') or ''
@@ -108,7 +131,7 @@ def ExperiencesForm(request,name):
         A8 = request.POST.get('A8') or ''
         A9 = request.POST.get('A9') or ''
         A10 = request.POST.get('A10') or ''
-        dt2= ExperienceFormsA.objects.create(E_id=dt.id,Name=dt.Name,FullName=FullName,DOB=DOB,Email=Email,ContactNo=ContactNo,State=State,City=City,SOP=SOP,A1=A1,A2=A2,A3=A3,A4=A4,A5=A5,A6=A6,A7=A7,A8=A8,A9=A9,A10=A10)
+        dt2= ExperienceFormsA.objects.create(E_id=dt.id,Name=dt.Name,FullName=FullName,DOB=DOB,Email=Email,Countrycode=Countrycode,ContactNo=ContactNo,Country=Country,WPNo=WPNo,Pincode=Pincode,SOP=SOP,A1=A1,A2=A2,A3=A3,A4=A4,A5=A5,A6=A6,A7=A7,A8=A8,A9=A9,A10=A10)
         dt2.save()
         return redirect(f'/Experiences/{dg.Category}/{dt.Name}')
     return render(request,'experiencesform.html',data)
@@ -129,6 +152,15 @@ def Blog(request):
     # return render(request,'blog.html')
 
 def Contact(request):
+    if request.method=="POST":
+        FullName=request.POST.get('FullName')
+        ContactNo=request.POST.get('ContactNo')
+        WPNo=request.POST.get('WPNo')
+        Email=request.POST.get('Email')
+        Msg=request.POST.get('Msg')
+        dt= ContactModel.objects.create(FullName=FullName,ContactNo=ContactNo,WPNo=WPNo,Email=Email,Msg=Msg)
+        dt.save()
+        return redirect('/')
     return render(request,'contact.html')
 # Pahado Se Admin-Side
 def Admin(request):
@@ -351,6 +383,24 @@ def MemoriesIDelete(request,id):
     dt.delete()
     return redirect('/AMemories')
 
+def AStays(request):
+    return render(request,'admin/stays.html')
+
+def AddStays(request):
+    return render(request,'admin/stays.html')
+
+def ContactList(request):
+    dt=ContactModel.objects.all()
+    data={'dt':dt}
+    return render(request,'admin/contact.html',data)
+
+def ExperienceFormlist(request):
+    EQ=ExperienceFormsQ.objects.all()
+    EA=ExperienceFormsA.objects.all()
+    data={'EQ':EQ,'EA':EA}
+    return render(request,'admin/experienceformlist.html',data)
+
+
 def DeleteQ():
     Experience.objects.all().delete()
     ExperienceCategory.objects.all().delete()
@@ -358,3 +408,4 @@ def DeleteQ():
     ExperienceFormsA.objects.all().delete()
     ExperienceFormsQ.objects.all().delete()
     ExperienceIncluded.objects.all().delete()
+

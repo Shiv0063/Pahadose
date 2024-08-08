@@ -57,8 +57,11 @@ urlpatterns = [
     path('DeleteCategory/<int:id>',views.CategoryDelete),
     path('AMemories',views.AMemories),
     path('MemoriesIDelete/<int:id>',views.MemoriesIDelete),
-
-
+    path('AStays',views.AStays),
+    path('ExperienceFormlist',views.ExperienceFormlist),
+    path('ExperiencesAPI',views.ExperiencesAPI),
+    path('ExperiencesSearch',views.ExperiencesSearch),
+    path('ContactList',views.ContactList),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

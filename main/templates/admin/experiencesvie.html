@@ -40,14 +40,14 @@
                     <div class="col-md-12 mb-2"><b>Experiences Category :-</b></div>
                     <div class="col-md-6 mb-2"><b class="me-5">Category :</b> {{ec.Category}}</div>
                     <div class="col-md-6 mb-2"><b class="me-5">Name :</b> {{dt.Name}}</div>
-                    <div class="col-md-12 mb-2"><b >Description :</b><br> {{dt.SmallDescription}}</div>     
+                    <div class="col-md-12 mb-2"><b >Description :</b><br> {{dt.SmallDescription|safe }}</div>     
                     </div>
                     
                 </div>
                 <div class="card mt-2 p-2">
                     <div class="row">
                     <div class="col-md-12 mb-2"><b>Experiences Category Data:-</b></div>
-                    <div class="col-md-12 mb-2"><b>Description :</b> {{dt.Description}}</div>
+                    <div class="col-md-12 mb-2"><b>Description :</b> {{dt.Description|safe }}</div>
                     <div class="col-md-12 mb-2"><b class="me-5">Address :</b> {{dt.Address}}</div>
                     <div class="col-md-4 mb-2"><b class="me-5">Price :</b> {{dt.Price}}</div>
                     <div class="col-md-4 mb-2"><b class="me-5">Days :</b> {{dt.Days}}</div>
