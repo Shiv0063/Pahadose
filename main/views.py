@@ -10,6 +10,7 @@ import os
 from django.views.decorators.csrf import csrf_exempt
 from urllib.parse import urlparse, parse_qs
 # Create your views here.
+# non
 # Pahado Se Front-Side
 def Login_in(request):
     if request.method=="POST":
